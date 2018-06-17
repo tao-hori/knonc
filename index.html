@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Knonc</title>
+	<meta name="csrf-param" content="authenticity_token">
+	<meta name="csrf-token" content="56Sws4MmwOUOTK7amwKCZAoZcBZJh1lj6bs6BS/kT4pnD143QvWwXdPdN5OpwrUdn9NjFfHjcZBO02Y9ntA+Mg==">
+	<!-- google font -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+	<!-- css カレントディレクトリ基準にパスを修正 -->
+	<link rel="stylesheet" media="all" href="./packs/application-ab38273fef164e74e7500e925d760cd9.css">
+	<link rel="stylesheet" media="all" href="./packs/overview-cb4b366f78fbe07c8609127e97d09f62.css">
+	<link rel="stylesheet" media="all" href="./packs/style.css">
+</head>
+<body>
+<div class="container container-large">
+	<!-- ヘッダー修正 -->
+	<div class="row" id="navbar-row" style="padding-bottom: 71px;">
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="site-title"><a class="navbar-brand" href="#">Knonc</a><span>Knowledge Base for oncology</span></div>
+			<ul class="nav navbar-nav navbar-left">
+				<li><a href="#">Home</a></li>
+				<li><a href="#">Clinical Data</a></li>
+				<li><a href="#">ProteinPaint</a></li>
+				<li><a href="#">Genome Data</a></li>
+				<li><a href="#">Analysis</a></li>
+				<li><a href="#">Admin</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#" class="button" id="button-help"><i class="icon-help"></i>Help</a></li>
+				<li><a href="#" class="button" id="button-user"><i class="icon-user"></i>UserName</a></li>
+			</ul>
+		</nav>
+	</div>
+	<!-- #pickup-row 追加 -->
+	<div class="row" id="pickup-row">
+		<div class="inner" id="pickup-row-inner">
+			<div id="pickup-container">
+				<div class="columns">
+					<div class="column">
+						<section class="card" id="card-about">
+							<a href="#">
+								<div class="card-content">
+									<div class="jc-icon"><img src="images/icon-about-knonc.svg" alt="About Knonc"/></div>
+									<div class="jc-name"><h1 class="title font-title">About Knonc</h1></div>
+									<div class="jc-desc">
+										<p>Enter description text. Enter description text. Enter description text. Enter description text. Enter description text. </p></div>
+									<div class="jc-action"><span class="button">More</span></div>
+								</div>
+							</a>
+						</section>
+					</div>
+					<div class="column">
+						<section class="card" id="card-anayze">
+							<a href="#">
+								<div class="card-content">
+									<div class="jc-icon"><img src="images/icon_analyze.svg" alt="Analyze"/></div>
+									<div class="jc-name"><h1 class="title font-title">Analyze</h1></div>
+									<div class="jc-desc">
+										<p>Enter description text. Enter description text. Enter description text. Enter description text. Enter description text. </p></div>
+									<div class="jc-action"><span class="button">More</span></div>
+								</div>
+							</a>
+						</section>
+					</div>
+					<div class="column">
+						<section class="card" id="card-database">
+							<a href="#">
+								<div class="card-content">
+									<div class="jc-icon"><img src="images/icon_database.svg" alt="Database"/></div>
+									<div class="jc-name"><h1 class="title font-title">Database</h1></div>
+									<div class="jc-desc">
+										<p>Enter description text. Enter description text. Enter description text. Enter description text. Enter description text. </p></div>
+									<div class="jc-action"><span class="button">More</span></div>
+								</div>
+							</a>
+						</section>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row" id="main">
+		<div class="inner" id="main-inner">
+			<div class="columns">
+				<div class="column">
+					<div class="title h1"><p class="title">Graph title</p></div>
+					<div class="desc"><p>Enter description text. Enter description text. Enter description text.</p></div>
+					<div class="col-lg-6">
+						<p>ここにグラフが入ります</p>
+					</div>
+					<div class="col-lg-6">
+						<div id="disease-patients-legend">
+							<div>
+								<input type="checkbox" id="legend_0_小児急性リンパ性白血病" data-key="小児急性リンパ性白血病" class="patients-of-disease-check">
+								<label class="legend_color_large" for="legend_0_小児急性リンパ性白血病" style="background-color: rgb(166, 206, 227);"></label>
+								<label for="legend_0_小児急性リンパ性白血病">小児急性リンパ性白血病</label>
+							</div>
+							<div>
+								<input type="checkbox" id="legend_1_急性骨髄性白血病" data-key="急性骨髄性白血病" class="patients-of-disease-check">
+								<label class="legend_color_large" for="legend_1_急性骨髄性白血病" style="background-color: rgb(31, 120, 180);"></label>
+								<label for="legend_1_急性骨髄性白血病">急性骨髄性白血病</label>
+							</div>
+							<div>
+								<input type="checkbox" id="legend_2_骨髄異形成症候群" data-key="骨髄異形成症候群" class="patients-of-disease-check">
+								<label class="legend_color_large" for="legend_2_骨髄異形成症候群" style="background-color: rgb(178, 223, 138);"></label>
+								<label for="legend_2_骨髄異形成症候群">骨髄異形成症候群</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="column">
+					<div class="title h1"><p class="title">Summary</p></div>
+					<div class="desc"><p>Enter description text. Enter description text. Enter description text.</p></div>
+					<div class="stat stat-left">
+						<ul>
+							<li id="studies">
+								<img src="images/icon_studies.svg" alt=""/>
+								<span class="name">Studies</span>5</li>
+							<li id="cases">
+								<img src="images/icon_cases.svg" alt=""/>
+								<span class="name">Cases</span>2,384</li>
+						</ul>
+					</div>
+					<div class="stat stat-right">
+						<ul>
+							<li id="mutations">
+								<img src="images/icon_mutations.svg" alt=""/>
+								<span class="name">Mutations</span>4,000</li>
+							<li id="structural-variants">
+								<img src="images/icon_structural-variants.svg" alt=""/>
+								<span class="name">Structural Variants</span>100</li>
+							<li id="copy-number-variants">
+								<img src="images/icon_copy-number-variants.svg" alt=""/>
+								<span class="name">Copy Number Variants</span>1000</li>
+						</ul>
+					</div>
+				</div>
+				<div class="column">
+					<div class="title h1"><p class="title">Graph title</p></div>
+					<div class="desc"><p>Enter description text. Enter description text. Enter description text.</p></div>
+					<div class="col-lg-9">
+						<p>ここにグラフが入ります</p>
+					</div>
+					<div class="action"><span class="button">More</span></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row" id="footer">
+		<nav class="nav-footer">
+			<ul class="navbar-nav navbar-left">
+				<li><a href="#">Site Home</a>|</li>
+				<li><a href="#">Policies</a></li>
+			</ul>
+		</nav>
+		<div class="copyright">
+			<p>2018 © NHO Nagoya Medical Center - Knowledge Base for oncology<br />Data Release 1.0 - June 6, 2018</p>
+		</div>
+	</div>
+		
+  <script src="/packs/overview-b7749855b94457342672.js"></script></div>
+<script src="/packs/application-34b13a8e0656709f5a49.js"></script>
+<div class="tooltip" style="pointer-events: none; opacity: 0; left: 383px; top: 108px; width: 200px;">骨髄異形成症候群<br>
+  症例数: 797(33.43 %)</div>
+<div class="tooltip" style="pointer-events: none; opacity: 0;"></div>
+</body>
+</html>
