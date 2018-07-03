@@ -345,57 +345,15 @@ nav {
 #main .column .stat-left {
 	padding-left: 90px;
 	margin-bottom: 20px;
-	background: #FFF;
-	background:
-		-webkit-linear-gradient(20deg, transparent 40px, #FFF 10px),
-		-webkit-linear-gradient(180deg, transparent 40px, #FFF 10px),
-		-webkit-linear-gradient(180deg, transparent 40px, #FFF 10px),
-		-webkit-linear-gradient(340deg, transparent 40px, #FFF 10px);
-	background:
-		-moz-linear-gradient(20deg, transparent 40px, #FFF 10px),
-		-moz-linear-gradient(180deg, transparent 40px, #FFF 10px),
-		-moz-linear-gradient(180deg, transparent 40px, #FFF 10px),
-		-moz-linear-gradient(340deg, transparent 40px, #FFF 10px);
-	background:
-		-o-linear-gradient(20deg, transparent 40px, #FFF 10px),
-		-o-linear-gradient(180deg, transparent 40px, #FFF 10px),
-		-o-linear-gradient(180deg, transparent 40px, #FFF 10px),
-		-o-linear-gradient(340deg, transparent 40px, #FFF 10px);
-	background:
-		-ms-linear-gradient(20deg, transparent 40px, #FFF 10px),
-		-ms-linear-gradient(180deg, transparent 40px, #FFF 10px),
-		-ms-linear-gradient(180deg, transparent 40px, #FFF 10px),
-		-ms-linear-gradient(340deg, transparent 40px, #FFF 10px);
-	background-position: bottom left, bottom right, top right, top left;
-	background-size: 51% 51%;
-	background-repeat: no-repeat;	
+	background: url(../images/bg_stat-left.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
 }
 
 #main .column .stat-right {
 	padding-right: 70px;
-	background: #FFF;
-	background:
-		-webkit-linear-gradient(0deg, transparent 40px, #FFF 10px),
-		-webkit-linear-gradient(170deg, transparent 40px, #FFF 10px),
-		-webkit-linear-gradient(190deg, transparent 40px, #FFF 10px),
-		-webkit-linear-gradient(0deg, transparent 40px, #FFF 10px);
-	background:
-		-moz-linear-gradient(0deg, transparent 40px, #FFF 10px),
-		-moz-linear-gradient(170deg, transparent 40px, #FFF 10px),
-		-moz-linear-gradient(190deg, transparent 40px, #FFF 10px),
-		-moz-linear-gradient(0deg, transparent 40px, #FFF 10px);
-	background:
-		-o-linear-gradient(0deg, transparent 40px, #FFF 10px),
-		-o-linear-gradient(170deg, transparent 40px, #FFF 10px),
-		-o-linear-gradient(190deg, transparent 40px, #FFF 10px),
-		-o-linear-gradient(0deg, transparent 40px, #FFF 10px);
-	background:
-		-ms-linear-gradient(0deg, transparent 40px, #FFF 10px),
-		-ms-linear-gradient(170deg, transparent 40px, #FFF 10px),
-		-ms-linear-gradient(190deg, transparent 40px, #FFF 10px),
-		-ms-linear-gradient(0deg, transparent 40px, #FFF 10px);
-	background-position: bottom left, bottom right, top right, top left;
-	background-size: 51% 51%;
+	background: url(../images/bg_stat-right.png);
+	background-size: 100% 100%;
 	background-repeat: no-repeat;	
 }
 #main .column .button {
