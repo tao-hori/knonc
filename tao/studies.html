@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+<head>
+	<title>Knonc</title>
+	<meta name="csrf-param" content="authenticity_token">
+	<meta name="csrf-token" content="pPdWOr3sRKweG1ryv/R4Tuz5Z5Q7xYinFjyLNGqsho32UL+IHWcyu1a4U7xcUiP/Lnld8yRoPmt/OUgeEc+4Zg==">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+	<link rel="stylesheet" media="all" href="./packs/application.css">
+	<link rel="stylesheet" media="all" href="./packs/style.css">
+</head>
+<body>
+<div class="container container-large">
+  <div class="row" id="navbar-row" style="padding-bottom: 70px;">
+    <nav class="navbar navbar-default navbar-fixed-top"><a class="site-title" href="/"></a>
+      <ul class="nav navbar-nav navbar-left">
+        <li><a href="/">Home</a></li>
+        <li><a href="/studies">Clinical Data</a></li>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Genome Data<span class="caret"></span></a>
+          <ul class="dropdown-menu" tabindex="0">
+            <li><a href="/variants">Mutations</a></li>
+            <li><a href="/protein_paint">Protein Paint</a></li>
+            <li><a href="/structural_variants">Structural Variants</a></li>
+            <li><a href="/copy_number_variants">Copy Number Variants</a></li>
+          </ul>
+        </li>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Analysis<span class="caret"></span></a>
+          <ul class="dropdown-menu" tabindex="0">
+            <li><a href="/survival">Survival</a></li>
+            <li><a href="/reports">Report</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a class="button" href="https://docs.google.com/document/d/e/2PACX-1vQng94PRG8KpXBwC-OAyxea-Vsk3j-o7P3_1mbdCtWVW6sx93O7YDiQ3N5pGRVHL__hot7_TZrHFBsh/pub" id="button-help"><span class="icon-help"></span>Help</a></li>
+        <li class="dropdown"><a class="button dropdown-toggle" data-toggle="dropdown" href="#" id="button-user"><span class="icon-user"></span>TCCSG 太郎
+          <div class="caret"></div>
+          </a>
+          <ul class="dropdown-menu" tabindex="0">
+            <li><a id="sign_out" rel="nofollow" data-method="delete" href="/users/sign_out"><span class="icon-logout"></span>Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="page">
+		<div class="row page-header">
+			<h1>Clinical Data</h1>
+		</div>	
+    <div class="row">
+      <div class="col-lg-12">
+        <h3>Studies</h3>
+				<div class="content-inner">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Patient Count</th>
+								<th>Mutation Count</th>
+								<th>Structural Variants Count</th>
+								<th>Copy Number Variants Count</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><a href="/studies/3/demographics">Trial1</a></td>
+								<td>506</td>
+								<td>807</td>
+								<td>123</td>
+								<td>637</td>
+							</tr>
+							<tr>
+								<td><a href="/studies/4/demographics">Trial3</a></td>
+								<td>797</td>
+								<td>1652</td>
+								<td>0</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td><a href="/studies/1/demographics">Trial4</a></td>
+								<td>197</td>
+								<td>375</td>
+								<td>0</td>
+								<td>0</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+      </div>
+    </div>
+  </div>
+  <div class="row" id="footer">
+    <nav class="nav-footer">
+      <ul class="navbar-nav navbar-left">
+        <li><a href="/">Site Home</a></li>
+      </ul>
+    </nav>
+    <div class="copyright">
+      <p>2018 © NHO Nagoya Medical Center -<span class="brand-prefix">Kn</span><span class="brand-name">owledge base for</span><span class="brand-prefix">onc</span><span class="brand-name">ology</span></p>
+    </div>
+  </div>
+</div>
+<script src="./packs/application.js"></script>
+</body>
+</html>

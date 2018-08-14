@@ -1,0 +1,505 @@
+<!doctype html>
+<html>
+<head>
+	<title>Knonc</title>
+	<meta name="csrf-param" content="authenticity_token">
+	<meta name="csrf-token" content="fb9Er3+tqT0JmuBrMZveidmeURYsccyTzaaElt2wJ768yWwNXJpF/CkLU5/fjsu33qMTgkw8erlz4TuUhIVxqw==">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+	<link rel="stylesheet" media="all" href="./packs/application.css">
+	<link rel="stylesheet" media="all" href="./packs/style.css">
+</head>
+<body>
+<div class="container container-large">
+  <div class="row" id="navbar-row" style="padding-bottom: 70px;">
+    <nav class="navbar navbar-default navbar-fixed-top"><a class="site-title" href="/"></a>
+      <ul class="nav navbar-nav navbar-left">
+        <li><a href="/">Home</a></li>
+        <li><a href="/studies">Clinical Data</a></li>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Genome Data<span class="caret"></span></a>
+          <ul class="dropdown-menu" tabindex="0">
+            <li><a href="/variants">Mutations</a></li>
+            <li><a href="/protein_paint">Protein Paint</a></li>
+            <li><a href="/structural_variants">Structural Variants</a></li>
+            <li><a href="/copy_number_variants">Copy Number Variants</a></li>
+          </ul>
+        </li>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Analysis<span class="caret"></span></a>
+          <ul class="dropdown-menu" tabindex="0">
+            <li><a href="/survival">Survival</a></li>
+            <li><a href="/reports">Report</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a class="button" href="https://docs.google.com/document/d/e/2PACX-1vQng94PRG8KpXBwC-OAyxea-Vsk3j-o7P3_1mbdCtWVW6sx93O7YDiQ3N5pGRVHL__hot7_TZrHFBsh/pub" id="button-help"><span class="icon-help"></span>Help</a></li>
+        <li class="dropdown"><a class="button dropdown-toggle" data-toggle="dropdown" href="#" id="button-user"><span class="icon-user"></span>TCCSG 太郎
+          <div class="caret"></div>
+          </a>
+          <ul class="dropdown-menu" tabindex="0">
+            <li><a id="sign_out" rel="nofollow" data-method="delete" href="/users/sign_out"><span class="icon-logout"></span>Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="page">
+		<div class="row page-header">
+			<h1>Protein paint</h1>
+		</div>
+		
+    <div class="row">
+			<div class="content-inner">
+				<div class="col-lg-3" id="select_gene_name">
+					<input class="form-control" id="gene" list="gene-names" placeholder="Select a Gene name" value="">
+					<button class="btn btn-default" id="refresh">Refresh</button>
+					<datalist id="gene-names">
+						<option value="ABL1"></option>
+						<option value="ACIN1"></option>
+						<option value="ACSM2A"></option>
+						<option value="AFF1"></option>
+						<option value="ARID1B"></option>
+						<option value="ASXL1"></option>
+						<option value="ASXL2"></option>
+						<option value="ATF7IP"></option>
+						<option value="ATM"></option>
+						<option value="ATRX"></option>
+						<option value="BCAS1"></option>
+						<option value="BCL11A"></option>
+						<option value="BCL11B"></option>
+						<option value="BCOR"></option>
+						<option value="BCORL1"></option>
+						<option value="BRAF"></option>
+						<option value="BRCA2"></option>
+						<option value="BRCC3"></option>
+						<option value="BTG1"></option>
+						<option value="CAD"></option>
+						<option value="CALR"></option>
+						<option value="CBL"></option>
+						<option value="CCND1"></option>
+						<option value="CCND2"></option>
+						<option value="CCND3"></option>
+						<option value="CDH1"></option>
+						<option value="CDH23"></option>
+						<option value="CDKN1B"></option>
+						<option value="CDKN2A"></option>
+						<option value="CEBPA"></option>
+						<option value="CFTR"></option>
+						<option value="CHD2"></option>
+						<option value="CHEK2"></option>
+						<option value="CIC"></option>
+						<option value="CNOT1"></option>
+						<option value="CNOT3"></option>
+						<option value="CREBBP"></option>
+						<option value="CRLF2"></option>
+						<option value="CSF1R"></option>
+						<option value="CSF2RA"></option>
+						<option value="CSF3R"></option>
+						<option value="CSNK1A1"></option>
+						<option value="CTCF"></option>
+						<option value="CUX1"></option>
+						<option value="DAZAP1"></option>
+						<option value="DCC"></option>
+						<option value="DCLRE1C"></option>
+						<option value="DDR2"></option>
+						<option value="DDX41"></option>
+						<option value="DDX41_germ"></option>
+						<option value="DHX15"></option>
+						<option value="DNM2"></option>
+						<option value="DNMT3A"></option>
+						<option value="DOT1L"></option>
+						<option value="DYNC2H1"></option>
+						<option value="EBF1"></option>
+						<option value="EED"></option>
+						<option value="EGFR"></option>
+						<option value="ELF1"></option>
+						<option value="EP300"></option>
+						<option value="EPHB1"></option>
+						<option value="ERBB4"></option>
+						<option value="ERF"></option>
+						<option value="ERG"></option>
+						<option value="ETNK1"></option>
+						<option value="ETV6"></option>
+						<option value="EVPL"></option>
+						<option value="EZH2"></option>
+						<option value="FANCD2"></option>
+						<option value="FANCI"></option>
+						<option value="FBXW7"></option>
+						<option value="FCGBP"></option>
+						<option value="FLT3"></option>
+						<option value="GATA2"></option>
+						<option value="GATA3"></option>
+						<option value="GATA6"></option>
+						<option value="GDPD2"></option>
+						<option value="GIGYF1"></option>
+						<option value="GIGYF2"></option>
+						<option value="GNAQ"></option>
+						<option value="GNAS"></option>
+						<option value="GNB1"></option>
+						<option value="GNL2"></option>
+						<option value="H3F3A"></option>
+						<option value="HCN1"></option>
+						<option value="HNRNPK"></option>
+						<option value="IDH1"></option>
+						<option value="IDH2"></option>
+						<option value="IGF1R"></option>
+						<option value="IKZF1"></option>
+						<option value="IKZF3"></option>
+						<option value="IL3RA"></option>
+						<option value="IL7R"></option>
+						<option value="IRF1"></option>
+						<option value="IRX1"></option>
+						<option value="ITGA9"></option>
+						<option value="JAK1"></option>
+						<option value="JAK2"></option>
+						<option value="JAK3"></option>
+						<option value="JARID2"></option>
+						<option value="JUN"></option>
+						<option value="KAT6A"></option>
+						<option value="KDM6A"></option>
+						<option value="KIT"></option>
+						<option value="KMT2C"></option>
+						<option value="KMT2D"></option>
+						<option value="KRAS"></option>
+						<option value="LEF1"></option>
+						<option value="LMO2"></option>
+						<option value="LTN1"></option>
+						<option value="LUC7L2"></option>
+						<option value="LYL1"></option>
+						<option value="MDM2"></option>
+						<option value="MECOM"></option>
+						<option value="MED1"></option>
+						<option value="MED12"></option>
+						<option value="MGA"></option>
+						<option value="MLLT10"></option>
+						<option value="MLLT3"></option>
+						<option value="MN1"></option>
+						<option value="MPL"></option>
+						<option value="MRE11A"></option>
+						<option value="MSH3"></option>
+						<option value="MSH6"></option>
+						<option value="MTOR"></option>
+						<option value="MYB"></option>
+						<option value="MYC"></option>
+						<option value="MYCN"></option>
+						<option value="MYH11"></option>
+						<option value="NCOR1"></option>
+						<option value="NCOR2"></option>
+						<option value="NDC80"></option>
+						<option value="NF1"></option>
+						<option value="NFE2"></option>
+						<option value="NKX2-5"></option>
+						<option value="NOLC1"></option>
+						<option value="NOTCH1"></option>
+						<option value="NOTCH2"></option>
+						<option value="NOTCH2NL"></option>
+						<option value="NPM1"></option>
+						<option value="NR3C1"></option>
+						<option value="NR3C2"></option>
+						<option value="NRAS"></option>
+						<option value="NRIP1"></option>
+						<option value="NT5C2"></option>
+						<option value="NTRK1"></option>
+						<option value="NTRK2"></option>
+						<option value="NUP98"></option>
+						<option value="P2RY8"></option>
+						<option value="PAX5"></option>
+						<option value="PBX1"></option>
+						<option value="PDGFRA"></option>
+						<option value="PDGFRB"></option>
+						<option value="PDS5B"></option>
+						<option value="PHF3"></option>
+						<option value="PHF6"></option>
+						<option value="PHIP"></option>
+						<option value="PIGA"></option>
+						<option value="PIK3CD"></option>
+						<option value="PIK3R1"></option>
+						<option value="PIM1"></option>
+						<option value="PLAGL1"></option>
+						<option value="PMS2"></option>
+						<option value="POLD1"></option>
+						<option value="POLE"></option>
+						<option value="PPP3CC"></option>
+						<option value="PRMT1"></option>
+						<option value="PROM1"></option>
+						<option value="PRPF8"></option>
+						<option value="PRPS1"></option>
+						<option value="PTCH1"></option>
+						<option value="PTEN"></option>
+						<option value="PTK2B"></option>
+						<option value="PTPN1"></option>
+						<option value="PTPN11"></option>
+						<option value="RAD21"></option>
+						<option value="RAD51C"></option>
+						<option value="RAG1"></option>
+						<option value="RB1"></option>
+						<option value="RET"></option>
+						<option value="RIT1"></option>
+						<option value="ROBO1"></option>
+						<option value="ROS1"></option>
+						<option value="RPL22"></option>
+						<option value="RPL5"></option>
+						<option value="RUNX1"></option>
+						<option value="SAMD9"></option>
+						<option value="SETBP1"></option>
+						<option value="SETD2"></option>
+						<option value="SETX"></option>
+						<option value="SF1"></option>
+						<option value="SF3A1"></option>
+						<option value="SF3B1"></option>
+						<option value="SH2B3"></option>
+						<option value="SLC25A6"></option>
+						<option value="SMARCA4"></option>
+						<option value="SMC1A"></option>
+						<option value="SMC3"></option>
+						<option value="SPI1"></option>
+						<option value="SRSF2"></option>
+						<option value="STAG1"></option>
+						<option value="STAG2"></option>
+						<option value="STAT3"></option>
+						<option value="STAT5A"></option>
+						<option value="STAT5B"></option>
+						<option value="STMN1"></option>
+						<option value="SUZ12"></option>
+						<option value="TAL1"></option>
+						<option value="TBL1XR1"></option>
+						<option value="TCF3"></option>
+						<option value="TCF7"></option>
+						<option value="TERF2"></option>
+						<option value="TERT"></option>
+						<option value="TET2"></option>
+						<option value="TP53"></option>
+						<option value="TPP1"></option>
+						<option value="TRRAP"></option>
+						<option value="TSC1"></option>
+						<option value="U2AF1"></option>
+						<option value="U2AF2"></option>
+						<option value="USH2A"></option>
+						<option value="USP7"></option>
+						<option value="USP9X"></option>
+						<option value="VEGFC"></option>
+						<option value="VPREB1"></option>
+						<option value="WHSC1"></option>
+						<option value="WT1"></option>
+						<option value="XPO1"></option>
+						<option value="ZBTB7A"></option>
+						<option value="ZEB2"></option>
+						<option value="ZFPM1"></option>
+						<option value="ZNF384"></option>
+						<option value="ZNF516"></option>
+						<option value="ZNF687"></option>
+						<option value="ZRSR2"></option>
+					</datalist>
+				</div>
+				
+				
+			</div>
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-12">
+        <div id="protein-paint">
+          <h3>Mutations of ABL1</h3>
+					<div class="content-inner">
+						<div class="row">
+							<div class="col-lg-12 clearfix">
+								<div class="display-mode">Display mode
+									<div class="btn-group" id="frame-display-mode-group" data-toggle="buttons">
+										<label class="btn btn-default active" tabindex="0">protein
+											<input tabindex="-1" type="radio" autocomplete="off">
+										</label>
+										<label class="btn btn-default" tabindex="1">exon only
+											<input tabindex="-1" type="radio" autocomplete="off">
+										</label>
+									</div>
+								</div>
+								
+								<div id="protein-paint-legend">
+									<div class="legend-item" style="display: inline-block; white-space: nowrap; padding: 5px 20px 5px 0px;">
+										<div style="display: inline-block; background-color: #aec7e8; margin-right: 5px;
+												border-radius: 15px; padding: 5px 20px 5px 0px;"></div>
+										<div style="display: inline-block; color: #aec7e8;">Frameshift</div>
+									</div>
+									<div class="legend-item" style="display: inline-block; white-space: nowrap; padding: 5px 20px 5px 0px;">
+										<div style="display: inline-block; background-color: #ccc; margin-right: 5px;
+												border-radius: 15px; padding: 5px 20px 5px 0px;"></div>
+										<div style="display: inline-block; color: #ccc;">Other</div>
+									</div>
+									<div class="legend-item" style="display: inline-block; white-space: nowrap; padding: 5px 20px 5px 0px;">
+										<div style="display: inline-block; background-color: #1f77b4; margin-right: 5px;
+												border-radius: 15px; padding: 5px 20px 5px 0px;"></div>
+										<div style="display: inline-block; color: #1f77b4;">Missense</div>
+									</div><div class="legend-item" style="display: inline-block; white-space: nowrap; padding: 5px 20px 5px 0px;">
+									<div style="display: inline-block; background-color: #2ca02c; margin-right: 5px;
+												border-radius: 15px; padding: 5px 20px 5px 0px;"></div>
+									<div style="display: inline-block; color: #2ca02c;">Silent</div>
+									</div><div class="legend-item" style="display: inline-block; white-space: nowrap; padding: 5px 20px 5px 0px;">
+									<div style="display: inline-block; background-color: #ff9896; margin-right: 5px;
+												border-radius: 15px; padding: 5px 20px 5px 0px;"></div>
+									<div style="display: inline-block; color: #ff9896;">Nonsense</div>
+									</div><div class="legend-item" style="display: inline-block; white-space: nowrap; padding: 5px 20px 5px 0px;">
+									<div style="display: inline-block; background-color: #ff7f0e; margin-right: 5px;
+												border-radius: 15px; padding: 5px 20px 5px 0px;"></div>
+									<div style="display: inline-block; color: #ff7f0e;">Protein Deletion</div>
+									</div>
+									<div class="legend-item" style="display: inline-block; white-space: nowrap; padding: 5px 20px 5px 0px;">
+										<div style="display: inline-block; background-color: #ffbb78; margin-right: 5px;
+												border-radius: 15px; padding: 5px 20px 5px 0px;"></div>
+										<div style="display: inline-block; color: #ffbb78;">Protein Insertion</div>
+									</div>
+								</div>				
+							</div>
+							
+							<div class="col-lg-6">
+								<div class="panel panel-default">
+									<div class="panel-heading" id="japanese">Japanese</div>
+									<div class="panel-body">
+										<dl>
+											<dd class="form-inline">
+												<dl class="dl-horizontal">
+													<dt>Amino acid</dt>
+													<dd class="form-inline">
+														<input id="filter-knonc-mutation" type="text" placeholder="keyword">
+													</dd>
+												</dl>
+												<dl class="dl-horizontal">
+													<dt>Mutation count(min)</dt>
+													<dd class="form-inline">
+														<input id="filter-knonc-mutation-count" class="mutation-count" type="number" value="1" min="1">
+													</dd>
+												</dl>
+											</dd>
+										</dl>
+									</div>
+								</div>
+							</div>
+							
+							<div class="row" id="kari">
+								<p>ここにグラフが入ります</p>
+							</div>
+
+							<div class="col-lg-6">
+								<div class="panel panel-default">
+									<div class="panel-heading" id="cosmic">COSMIC</div>
+									<div class="panel-body">
+										<dl>
+											<dd class="form-inline">
+												<dl class="dl-horizontal">
+													<dt>Amino acid</dt>
+													<dd class="form-inline">
+														<input id="filter-cosmic-mutation" type="text" placeholder="keyword">
+													</dd>
+												</dl>
+												<dl class="dl-horizontal">
+													<dt>Mutation count(min)</dt>
+													<dd class="form-inline">
+														<input id="filter-cosmic-mutation-count" class="mutation-count" type="number" value="1" min="1">
+													</dd>
+												</dl>
+											</dd>
+										</dl>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="content-inner">
+							<div class="col-lg-12">
+								<div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
+									<div class="dataTable-top">
+										<div class="dataTable-info">Showing 1 to 2 of 2 entries</div>
+										<div class="dataTable-dropdown">
+											<label>
+												<select class="dataTable-selector">
+													<option value="5">5</option>
+													<option value="10" selected="">10</option>
+													<option value="15">15</option>
+													<option value="20">20</option>
+													<option value="25">25</option>
+												</select>
+												entries per page</label>
+										</div>
+										<div class="dataTable-search">
+											<input class="dataTable-input" placeholder="Search..." type="text">
+										</div>
+									</div>
+									<div class="dataTable-container">
+										<table id="variants-table" class="dataTable-table">
+											<thead>
+												<tr>
+													<th data-sortable="" style="width: 12.1116%;"><a href="#" class="dataTable-sorter">User subject id</a></th>
+													<th data-sortable="" style="width: 6.12164%;"><a href="#" class="dataTable-sorter">Chr</a></th>
+													<th data-sortable="" style="width: 10.1369%;"><a href="#" class="dataTable-sorter">Start</a></th>
+													<th data-sortable="" style="width: 10.1369%;"><a href="#" class="dataTable-sorter">Stop</a></th>
+													<th data-sortable="" style="width: 5.39758%;"><a href="#" class="dataTable-sorter">Ref</a></th>
+													<th data-sortable="" style="width: 5.06846%;"><a href="#" class="dataTable-sorter">Alt</a></th>
+													<th data-sortable="" style="width: 8.55713%;"><a href="#" class="dataTable-sorter">Function</a></th>
+													<th data-sortable="" style="width: 16.0611%;"><a href="#" class="dataTable-sorter">Exonic Function</a></th>
+													<th data-sortable="" style="width: 6.97736%;"><a href="#" class="dataTable-sorter">Depth</a></th>
+													<th data-sortable="" style="width: 6.91153%;"><a href="#" class="dataTable-sorter">VAF</a></th>
+													<th data-sortable="" style="width: 12.7699%;"><a href="#" class="dataTable-sorter">P-Value(EBCall)</a></th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td><a href="/demographics/791">Trial1-798</a></td>
+													<td>chr9</td>
+													<td>133760974</td>
+													<td>133760974</td>
+													<td>C</td>
+													<td>G</td>
+													<td>exonic</td>
+													<td>nonsynonymous SNV</td>
+													<td>427</td>
+													<td>0.454</td>
+													<td>60</td>
+												</tr>
+												<tr>
+													<td><a href="/demographics/1200">Trial1-1247</a></td>
+													<td>chr9</td>
+													<td>133750372</td>
+													<td>133750372</td>
+													<td>C</td>
+													<td>-</td>
+													<td>exonic</td>
+													<td>frameshift deletion</td>
+													<td>881</td>
+													<td>0.453</td>
+													<td>60</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<div class="dataTable-bottom">
+										<div class="dataTable-pagination"></div>
+									</div>
+								</div>
+							</div>						
+						</div>
+							
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--<script src="./packs/protein_paint.js"></script>-->
+  <link rel="stylesheet" media="all" href="./packs/protein_paint.css">
+  <div class="row" id="footer">
+    <nav class="nav-footer">
+      <ul class="navbar-nav navbar-left">
+        <li><a href="/">Site Home</a></li>
+      </ul>
+    </nav>
+    <div class="copyright">
+      <p>2018 © NHO Nagoya Medical Center -<span class="brand-prefix"> Kn</span><span class="brand-name">owledge base for</span><span class="brand-prefix"> onc</span><span class="brand-name">ology</span></p>
+    </div>
+  </div>
+</div>
+<script src="./packs/application.js"></script>
+<div class="tooltip" style="pointer-events: none; opacity: 0; left: 393px; top: 922px;">exon6</div>
+<div class="tooltip" style="pointer-events: none; opacity: 0;"></div>
+<div class="tooltip" style="pointer-events: none; opacity: 0;"></div>
+</body>
+</html>

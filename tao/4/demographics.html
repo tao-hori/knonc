@@ -1,0 +1,204 @@
+<!doctype html>
+<html>
+<head>
+	<title>Knonc</title>
+	<meta name="csrf-param" content="authenticity_token">
+	<meta name="csrf-token" content="o/unssOV0OxguhJidghoUnwxwVUTpelreAAK9STgymbxXE4AYx6m+ygZGyyVrjPjvrH7MgwIX6cRBcnfX4P0jQ==">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+	<link rel="stylesheet" media="all" href="../packs/application.css">
+	<link rel="stylesheet" media="all" href="../packs/style.css">
+</head>
+<body>
+<div class="container container-large">
+  <div class="row" id="navbar-row" style="padding-bottom: 70px;">
+    <nav class="navbar navbar-default navbar-fixed-top"><a class="site-title" href="/"></a>
+      <ul class="nav navbar-nav navbar-left">
+        <li><a href="/">Home</a></li>
+        <li><a href="/studies">Clinical Data</a></li>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Genome Data<span class="caret"></span></a>
+          <ul class="dropdown-menu" tabindex="0">
+            <li><a href="/variants">Mutations</a></li>
+            <li><a href="/protein_paint">Protein Paint</a></li>
+            <li><a href="/structural_variants">Structural Variants</a></li>
+            <li><a href="/copy_number_variants">Copy Number Variants</a></li>
+          </ul>
+        </li>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Analysis<span class="caret"></span></a>
+          <ul class="dropdown-menu" tabindex="0">
+            <li><a href="/survival">Survival</a></li>
+            <li><a href="/reports">Report</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a class="button" href="https://docs.google.com/document/d/e/2PACX-1vQng94PRG8KpXBwC-OAyxea-Vsk3j-o7P3_1mbdCtWVW6sx93O7YDiQ3N5pGRVHL__hot7_TZrHFBsh/pub" id="button-help"><span class="icon-help"></span>Help</a></li>
+        <li class="dropdown"><a class="button dropdown-toggle" data-toggle="dropdown" href="#" id="button-user"><span class="icon-user"></span>TCCSG 太郎
+          <div class="caret"></div>
+          </a>
+          <ul class="dropdown-menu" tabindex="0">
+            <li><a id="sign_out" rel="nofollow" data-method="delete" href="/users/sign_out"><span class="icon-logout"></span>Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="page">
+		<div class="row page-header">
+			<h1>Clinical Data</h1>
+		</div>
+    <div class="row">
+      <div class="col-lg-12">
+				<h3>Demographics</h3>
+				<div class="content-inner">
+					<div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
+						<div class="dataTable-top">
+							<div class="dataTable-info">Showing 1 to 10 of 797 entries</div>
+							<div class="dataTable-dropdown">
+								<label>
+									<select class="dataTable-selector">
+										<option value="5">5</option>
+										<option value="10" selected="">10</option>
+										<option value="15">15</option>
+										<option value="20">20</option>
+										<option value="25">25</option>
+									</select>
+									entries per page</label>
+							</div>
+							<div class="dataTable-search">
+								<input class="dataTable-input" placeholder="Search..." type="text">
+							</div>
+						</div>
+						<div class="dataTable-container">
+							<table id="demographics-table" class="dataTable-table">
+								<thead>
+									<tr>
+										<th data-sortable="" style="width: 19.8131%;"><a href="#" class="dataTable-sorter">User subject id</a></th>
+										<th data-sortable="" style="width: 11.585%;"><a href="#" class="dataTable-sorter">Sex</a></th>
+										<th data-sortable="" style="width: 7.70142%;"><a href="#" class="dataTable-sorter">Age</a></th>
+										<th data-sortable="" style="width: 12.5066%;"><a href="#" class="dataTable-sorter">Age unit</a></th>
+										<th data-sortable="" style="width: 14.0864%;"><a href="#" class="dataTable-sorter">Birth date</a></th>
+										<th data-sortable="" style="width: 34.426%;"><a href="#" class="dataTable-sorter">Subject reference start date</a></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><a href="/demographics/1240">Trial3-724</a></td>
+										<td>Male</td>
+										<td>24</td>
+										<td>YEARS</td>
+										<td></td>
+										<td>2012-12-27T00:00:00.000Z</td>
+									</tr>
+									<tr>
+										<td><a href="/demographics/1241">Trial3-725</a></td>
+										<td>Female</td>
+										<td>41</td>
+										<td>YEARS</td>
+										<td></td>
+										<td>2002-08-31T00:00:00.000Z</td>
+									</tr>
+									<tr>
+										<td><a href="/demographics/1242">Trial3-726</a></td>
+										<td>Male</td>
+										<td>44</td>
+										<td>YEARS</td>
+										<td></td>
+										<td>2009-07-23T00:00:00.000Z</td>
+									</tr>
+									<tr>
+										<td><a href="/demographics/1243">Trial3-760</a></td>
+										<td>Female</td>
+										<td>53</td>
+										<td>YEARS</td>
+										<td></td>
+										<td>2017-09-20T00:00:00.000Z</td>
+									</tr>
+									<tr>
+										<td><a href="/demographics/1244">Trial3-761</a></td>
+										<td>Male</td>
+										<td>33</td>
+										<td>YEARS</td>
+										<td></td>
+										<td>2017-11-11T00:00:00.000Z</td>
+									</tr>
+									<tr>
+										<td><a href="/demographics/1245">Trial3-762</a></td>
+										<td>Female</td>
+										<td>44</td>
+										<td>YEARS</td>
+										<td></td>
+										<td>2017-05-26T00:00:00.000Z</td>
+									</tr>
+									<tr>
+										<td><a href="/demographics/1246">Trial3-797</a></td>
+										<td>Male</td>
+										<td>32</td>
+										<td>YEARS</td>
+										<td></td>
+										<td>2017-03-17T00:00:00.000Z</td>
+									</tr>
+									<tr>
+										<td><a href="/demographics/1247">Trial3-814</a></td>
+										<td>Male</td>
+										<td>22</td>
+										<td>YEARS</td>
+										<td></td>
+										<td>2002-09-12T00:00:00.000Z</td>
+									</tr>
+									<tr>
+										<td><a href="/demographics/1248">Trial3-815</a></td>
+										<td>Female</td>
+										<td>52</td>
+										<td>YEARS</td>
+										<td></td>
+										<td>2017-11-05T00:00:00.000Z</td>
+									</tr>
+									<tr>
+										<td><a href="/demographics/1249">Trial3-816</a></td>
+										<td>Female</td>
+										<td>49</td>
+										<td>YEARS</td>
+										<td></td>
+										<td>2017-11-05T00:00:00.000Z</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="dataTable-bottom">
+							<div class="dataTable-pagination">
+								<li class="pager"><a href="#" data-page="1">‹</a></li>
+								<li class="active"><a href="#" data-page="1">1</a></li>
+								<li class=""><a href="#" data-page="2">2</a></li>
+								<li class=""><a href="#" data-page="3">3</a></li>
+								<li class=""><a href="#" data-page="4">4</a></li>
+								<li class=""><a href="#" data-page="5">5</a></li>
+								<li class=""><a href="#" data-page="6">6</a></li>
+								<li class=""><a href="#" data-page="7">7</a></li>
+								<li class="ellipsis"><a href="#">…</a></li>
+								<li class=""><a href="#" data-page="80">80</a></li>
+								<li class="pager"><a href="#" data-page="2">›</a></li>
+							</div>
+						</div>
+					</div>
+				</div>
+
+      </div>
+    </div>
+    <div id="study-id" style="display:none">4</div>
+  </div>
+  <script src="../packs/demographics.js"></script>
+  <div class="row" id="footer">
+    <nav class="nav-footer">
+      <ul class="navbar-nav navbar-left">
+        <li><a href="/">Site Home</a></li>
+      </ul>
+    </nav>
+    <div class="copyright">
+      <p>2018 © NHO Nagoya Medical Center -<span class="brand-prefix">Kn</span><span class="brand-name">owledge base for</span><span class="brand-prefix">onc</span><span class="brand-name">ology</span></p>
+    </div>
+  </div>
+</div>
+<script src="../packs/application.js"></script>
+</body>
+</html>

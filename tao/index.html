@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Knonc</title>
+  <meta name="csrf-param" content="authenticity_token" />
+  <meta name="csrf-token" content="6lSUUAsDBFoZDWrUnxP1FKC9UsiG2Gue9KySXTPxD+GoTTQseHGV/tkT6H3kkrE9hgyMy7eoSGfwC6+wBjY01A=="
+  />
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet" />
+  <link rel="stylesheet" media="all" href="./packs/application.css" />
+  <link rel="stylesheet" media="all" href="./packs/overview.css" />
+</head>
+
+<body>
+  <div class="container container-large">
+    <div class="row" id="navbar-row">
+      <nav class="navbar navbar-default navbar-fixed-top"><a class="site-title" href="/"></a><ul class="nav navbar-nav navbar-left">
+          <li><a href="/">Home</a></li>
+          <li><a href="/studies">Clinical Data</a></li>
+          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Genome Data<span class="caret"></span></a><ul
+              class="dropdown-menu">
+              <li><a href="/variants">Mutations</a></li>
+              <li><a href="/protein_paint">Protein Paint</a></li>
+              <li><a href="/structural_variants">Structural Variants</a></li>
+              <li><a href="/copy_number_variants">Copy Number Variants</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Analysis<span class="caret"></span></a><ul
+              class="dropdown-menu">
+              <li><a href="/survival">Survival</a></li>
+              <li><a href="/reports">Report</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin<span class="caret"></span></a><ul
+              class="dropdown-menu">
+              <li><a href="/master/studies">Studies</a></li>
+              <li><a href="/master/study_groups">Study Groups</a></li>
+              <li><a href="/master/users">Users</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a class="button" href="https://docs.google.com/document/d/e/2PACX-1vQng94PRG8KpXBwC-OAyxea-Vsk3j-o7P3_1mbdCtWVW6sx93O7YDiQ3N5pGRVHL__hot7_TZrHFBsh/pub"
+              id="button-help"><span class="icon-help"></span>Help</a></li>
+          <li class="dropdown"><a class="button dropdown-toggle" data-toggle="dropdown" href="#" id="button-user"><span class="icon-user"></span>管理者
+              太郎
+              <div class="caret"></div></a><ul class="dropdown-menu">
+              <li><a id="sign_out" rel="nofollow" data-method="delete" href="/users/sign_out"><span class="icon-logout"></span>Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="row" id="pickup-row">
+      <div class="inner" id="pickup-row-inner">
+        <div id="pickup-container">
+          <div class="columns">
+            <div class="column">
+              <section class="card" id="card-about"><a href="#"><div class="card-content">
+                    <div class="jc-name">
+                      <h1 class="title font-title">About Knonc</h1>
+                    </div>
+                    <div class="jc-desc">
+                      <p>knoncは日本のがん症例の臨床情報とゲノム情報を統合したデータベースです。 情報源がプロジェクト毎にクリーニングされた高品質データであることより、臨床情報が正確・豊富であることが特徴です。</p>
+                    </div>
+                  </div></a></section>
+            </div>
+            <div class="column">
+              <section class="card" id="card-analyze"><a href="#"><div class="card-content">
+                    <div class="jc-name">
+                      <h1 class="title font-title">Analyze</h1>
+                    </div>
+                    <div class="jc-desc">
+                      <p>治療、予後情報などを含むことより、ゲノムデータと臨床データの両側面からの解析が可能になります。またクリニカルシーケンスにおけるExpert panelに向けて、特定の変異に対するガイドライン、本データベース／COSMICにおける頻度情報、薬剤情報、臨床試験情報を提供しています。</p>
+                    </div>
+                  </div></a></section>
+            </div>
+            <div class="column">
+              <section class="card" id="card-database"><a href="#"><div class="card-content">
+                    <div class="jc-name">
+                      <h1 class="title font-title">Database</h1>
+                    </div>
+                    <div class="jc-desc">
+                      <p>CDISC標準へ変換することにより複数の試験・プロジェクト由来のデータの統合が可能にしています。がん治療を目的とした日本国内の様々なグループによる臨床試験・プロジェクトよりデータを提供いただいています。</p>
+                    </div>
+                  </div></a></section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" id="main">
+      <div class="inner" id="main-inner">
+        <div class="columns">
+          <div class="column">
+            <div class="title h1">
+              <p class="title">Diseases</p>
+            </div>
+            <div class="col-lg-6">
+              <div id="disease-patients-svg">
+                <svg width="390" height="300">
+                  <g transform="translate(195,150)">
+                    <g class="pie">
+                      <path d="M3.026347424173663,-149.96946763014196A150,150,0,0,1,68.04773146538355,133.67687250386678L11.335437889485089,16.47749519355493A20,20,0,0,0,3.026347424173668,-19.769704632801105Z"
+                        fill="#008BC2"></path>
+                    </g>
+                    <g class="pie">
+                      <path d="M62.599395378242406,136.31329978501174A150,150,0,0,1,-127.88452336091186,78.39355002009022L-15.530692117823083,12.601492068060352A20,20,0,0,0,5.887101802343919,19.113922474699926Z"
+                        fill="#5A70D8"></path>
+                    </g>
+                    <g class="pie">
+                      <path d="M-130.9430485153436,73.1704724975066A150,150,0,0,1,-3.0263474241736814,-149.96946763014196L-3.0263474241736614,-19.769704632801105A20,20,0,0,0,-18.589217272254842,7.378414545476703Z"
+                        fill="#9671BF"></path>
+                    </g>
+                  </g>
+                </svg>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div id="disease-patients-legend"></div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="title h1">
+              <p class="title">Summary</p>
+            </div>
+            <div class="stat stat-left">
+              <ul>
+                <li id="studies"><img alt="" src="./images/icon_studies.svg"
+                  /><span class="name">Studies</span>5</li>
+                <li id="cases"><img alt="" src="./images/icon_cases.svg" /><span
+                    class="name">Cases</span>2384</li>
+              </ul>
+            </div>
+            <div class="stat stat-right">
+              <ul>
+                <li id="mutations"><img alt="" src="./images/icon_mutations.svg"
+                  /><span class="name">Mutations</span>4379</li>
+                <li id="structural-variants"><img alt="" src="./images/icon_structural-variants.svg"
+                  /><span class="name">Structural Variants</span>123</li>
+                <li id="copy-number-variants"><img alt="" src="./images/icon_copy-number-variants.svg"
+                  /><span class="name">Copy Number Variants</span>1038</li>
+              </ul>
+            </div>
+          </div>
+          <div class="column">
+            <div class="title h1">
+              <p class="title">Genes</p>
+            </div>
+            <div class="col-lg-6">
+              <div id="gene-mutations-svg">
+                <svg width="390" height="580"><g><text x="30" y="15" text-anchor="middle">Gene</text><text x="225" y="15"
+                      text-anchor="middle">Mutation Count</text></g>
+                  <g transform="translate(60,20)">
+                    <rect class="bar" fill="#45B2DF" width="52.43835616438356" height="16.470588235294116" y="532.5490196078431"></rect>
+                    <rect class="bar" fill="#45B2DF" width="52.43835616438356" height="16.470588235294116" y="505.09803921568624"></rect>
+                    <rect class="bar" fill="#45B2DF" width="58.76712328767123" height="16.470588235294116" y="477.6470588235294"></rect>
+                    <rect class="bar" fill="#45B2DF" width="59.67123287671233" height="16.470588235294116" y="450.19607843137254"></rect>
+                    <rect class="bar" fill="#45B2DF" width="64.19178082191782" height="16.470588235294116" y="422.7450980392157"></rect>
+                    <rect class="bar" fill="#45B2DF" width="65.0958904109589" height="16.470588235294116" y="395.29411764705884"></rect>
+                    <rect class="bar" fill="#45B2DF" width="69.61643835616438" height="16.470588235294116" y="367.84313725490193"></rect>
+                    <rect class="bar" fill="#45B2DF" width="74.13698630136986" height="16.470588235294116" y="340.3921568627451"></rect>
+                    <rect class="bar" fill="#45B2DF" width="76.84931506849314" height="16.470588235294116" y="312.94117647058823"></rect>
+                    <rect class="bar" fill="#45B2DF" width="85.8904109589041" height="16.470588235294116" y="285.4901960784314"></rect>
+                    <rect class="bar" fill="#45B2DF" width="91.31506849315068" height="16.470588235294116" y="258.0392156862745"></rect>
+                    <rect class="bar" fill="#45B2DF" width="106.68493150684931" height="16.470588235294116" y="230.58823529411765"></rect>
+                    <rect class="bar" fill="#45B2DF" width="107.58904109589041" height="16.470588235294116" y="203.1372549019608"></rect>
+                    <rect class="bar" fill="#45B2DF" width="112.10958904109589" height="16.470588235294116" y="175.68627450980392"></rect>
+                    <rect class="bar" fill="#45B2DF" width="120.24657534246576" height="16.470588235294116" y="148.23529411764707"></rect>
+                    <rect class="bar" fill="#45B2DF" width="141.04109589041096" height="16.470588235294116" y="120.78431372549021"></rect>
+                    <rect class="bar" fill="#45B2DF" width="155.5068493150685" height="16.470588235294116" y="93.33333333333334"></rect>
+                    <rect class="bar" fill="#45B2DF" width="164.54794520547946" height="16.470588235294116" y="65.88235294117649"></rect>
+                    <rect class="bar" fill="#45B2DF" width="258.5753424657534" height="16.470588235294116" y="38.43137254901963"></rect>
+                    <rect class="bar" fill="#45B2DF" width="330" height="16.470588235294116" y="10.980392156862763"></rect><text class="gene-count-label" y="545.2843137254902" x="22.438356164383563">58</text><text class="gene-count-label"
+                      y="517.8333333333333" x="22.438356164383563">58</text><text class="gene-count-label" y="490.38235294117646"
+                      x="28.767123287671232">65</text><text class="gene-count-label" y="462.9313725490196" x="29.67123287671233">66</text><text
+                      class="gene-count-label" y="435.48039215686276" x="34.19178082191782">71</text><text class="gene-count-label"
+                      y="408.0294117647059" x="35.0958904109589">72</text><text class="gene-count-label" y="380.578431372549"
+                      x="39.61643835616438">77</text><text class="gene-count-label" y="353.12745098039215" x="44.13698630136986">82</text><text
+                      class="gene-count-label" y="325.6764705882353" x="46.84931506849314">85</text><text class="gene-count-label"
+                      y="298.22549019607845" x="55.8904109589041">95</text><text class="gene-count-label" y="270.77450980392155"
+                      x="56.315068493150676">101</text><text class="gene-count-label" y="243.3235294117647" x="71.68493150684931">118</text><text
+                      class="gene-count-label" y="215.87254901960785" x="72.58904109589041">119</text><text class="gene-count-label"
+                      y="188.421568627451" x="77.10958904109589">124</text><text class="gene-count-label" y="160.97058823529414"
+                      x="85.24657534246576">133</text><text class="gene-count-label" y="133.51960784313727" x="106.04109589041096">156</text><text
+                      class="gene-count-label" y="106.0686274509804" x="120.50684931506851">172</text><text class="gene-count-label"
+                      y="78.61764705882355" x="129.54794520547946">182</text><text class="gene-count-label" y="51.166666666666686"
+                      x="223.5753424657534">286</text><text class="gene-count-label" y="23.71568627450982" x="295">365</text><g
+                      class="x-label" fill="none" font-size="10" font-family="sans-serif" text-anchor="end">
+                      <g class="tick"
+                        opacity="1" transform="translate(0,540.7843137254902)"><text fill="#000" x="-9" dy="0.32em">NPM1</text></g>
+                      <g class="tick" opacity="1" transform="translate(0,513.3333333333333)"><text fill="#000" x="-9" dy="0.32em">PAX5</text></g>
+                      <g class="tick" opacity="1" transform="translate(0,485.88235294117646)"><text fill="#000" x="-9" dy="0.32em">EZH2</text></g>
+                      <g class="tick" opacity="1" transform="translate(0,458.4313725490196)"><text fill="#000" x="-9" dy="0.32em">WT1</text></g>
+                      <g class="tick" opacity="1" transform="translate(0,430.98039215686276)"><text fill="#000" x="-9" dy="0.32em">BCOR</text></g>
+                      <g class="tick" opacity="1" transform="translate(0,403.5294117647059)"><text fill="#000" x="-9" dy="0.32em">CREBBP</text></g>
+                      <g class="tick" opacity="1" transform="translate(0,376.078431372549)"><text fill="#000" x="-9" dy="0.32em">SETD2</text></g>
+                      <g class="tick" opacity="1" transform="translate(0,348.62745098039215)"><text fill="#000" x="-9" dy="0.32em">KMT2D</text></g>
+                      <g class="tick" opacity="1" transform="translate(0,321.1764705882353)"><text fill="#000" x="-9" dy="0.32em">ETV6</text></g>
+                      <g class="tick" opacity="1" transform="translate(0,293.72549019607845)"><text fill="#000" x="-9" dy="0.32em">TET2</text></g>
+                      <g class="tick" opacity="1" transform="translate(0,266.27450980392155)"><text fill="#000" x="-9" dy="0.32em">DNMT3A</text></g>
+                      <g class="tick" opacity="1" transform="translate(0,238.8235294117647)"><text fill="#000" x="-9" dy="0.32em">PTPN11</text></g>
+                      <g class="tick" opacity="1" transform="translate(0,211.37254901960785)"><text fill="#000" x="-9" dy="0.32em">U2AF1</text></g>
+                      <g class="tick" opacity="1" transform="translate(0,183.921568627451)"><text fill="#000" x="-9" dy="0.32em">KIT</text></g>
+                      <g class="tick" opacity="1" transform="translate(0,156.47058823529414)"><text fill="#000" x="-9" dy="0.32em">RUNX1</text></g>
+                      <g class="tick" opacity="1" transform="translate(0,129.01960784313727)"><text fill="#000" x="-9" dy="0.32em">ASXL1</text></g>
+                      <g class="tick" opacity="1" transform="translate(0,101.5686274509804)"><text fill="#000" x="-9" dy="0.32em">TP53</text></g>
+                      <g class="tick" opacity="1" transform="translate(0,74.11764705882355)"><text fill="#000" x="-9" dy="0.32em">FLT3</text></g>
+                      <g class="tick" opacity="1" transform="translate(0,46.666666666666686)"><text fill="#000" x="-9" dy="0.32em">KRAS</text></g>
+                      <g class="tick" opacity="1" transform="translate(0,19.21568627450982)"><text fill="#000" x="-9" dy="0.32em">NRAS</text></g>
+                    </g>
+                  </g></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="disease-patients-url" style="display:none">/api/overview/disease_patients</div>
+    <div id="gene-mutations-url" style="display:none">/api/overview/gene_mutations</div>
+    <script src="./packs/overview.js"></script>
+    <div class="row" id="footer">
+      <nav class="nav-footer">
+        <ul class="navbar-nav navbar-left">
+          <li><a href="/">Site Home</a></li>
+        </ul>
+      </nav>
+      <div class="copyright">
+        <p>2018 © NHO Nagoya Medical Center -<span class="brand-prefix"> Kn</span><span class="brand-name">owledge base for</span><span
+            class="brand-prefix"> onc</span><span class="brand-name">ology</span></p>
+      </div>
+    </div>
+  </div>
+  <script src="./packs/application.js"></script>
+</body>
+
+</html>

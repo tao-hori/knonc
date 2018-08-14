@@ -1,0 +1,139 @@
+div.tooltip {
+    position: absolute;
+    text-align: left;
+    padding: 2px;
+    font: 12px sans-serif;
+    background: lightsteelblue;
+    border: 0px;
+    border-radius: 8px;
+}
+#query-input,
+#query-paste,
+#query-paste-genomon {
+	float: none;
+	margin: 0 auto;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+#query-paste,
+#query-paste-genomon {
+	max-width: 680px;
+}
+#query-input table tr th, #query-input table tr td,
+#query-paste dl dt, #query-paste dl dd,
+#query-paste-genomon dl dt, #query-paste-genomon dl dd {
+	padding: 19.8px 20px;
+}
+#query-input table tbody tr:nth-child(odd),
+#query-paste dl dd:nth-child(even),
+#query-paste-genomon dl dd:nth-child(even) {
+	background: #f5f5f5;
+}
+#query-paste dl,
+#query-paste-genomon dl {
+	border-bottom: 1px solid #ddd;
+}
+#query-paste dl dd,
+#query-paste-genomon dl dd {
+	border-top: 1px solid #ddd;
+}
+#query-input input {
+	width: 280px;
+}
+#query-paste textarea,
+#query-paste-genomon textarea{
+	resize: none;
+	width: 100%;
+	padding: 0.5em 0.8em;
+	border: 1px solid #ccc;
+}
+#query-input .row,
+#query-paste .row,
+#query-paste-genomon .row {
+	margin-top: 30px !important;
+	text-align: center;
+}
+#add-genes,
+#generate-by-input,
+#generate-by-paste,
+#generate-by-paste-genomon {
+	width: 150px;
+	margin: 0 15px;
+	padding-top: 10.4px;
+	padding-bottom: 10.4px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+#protein-paint {
+	width: 100%;
+	max-width: 1400px;
+	margin: 0 auto 70px auto !important;
+}
+#protein-paint > div {
+	width: 100%;
+}
+.knonc-mutation-count-detail {
+	padding: 3px 10px;
+	color: #fff;
+}
+.knonc-mutation-count-detail-0 {
+	float: left;
+}
+.knonc-mutation-count-detail-1,
+.knonc-mutation-count-detail-2,
+.knonc-mutation-count-detail-3 {
+	position: relative;
+	padding: 0 22px 0 15px;
+	float: right;
+}
+.knonc-mutation-count-detail-3 {
+	padding-right: 10px;
+}
+.knonc-mutation-count-detail-1:after,
+.knonc-mutation-count-detail-2:after {
+	position: absolute;
+	top: 0;
+	right: 0;
+	content: "/";
+	display: block;
+}
+.knonc-mutation-count-title {
+	position: relative;
+	text-align: center;
+}
+.knonc-mutation-count-title h4 {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 3.5px 5px;
+	font-size: 26px;
+	font-weight: bold;
+	background: #fff;
+}
+.knonc-mutation-count-title > div {
+	display: inline-block;
+	padding: 4.4px 64px;
+	font-size: 18px;
+	font-weight: bold;
+	color: #FC0D1B;
+}
+.col-lg-6.knonc .knonc-mutation-count-title h4 {
+	color: #45B2DF;
+}
+.col-lg-6.cosmic .knonc-mutation-count-title h4 {
+	color: #DF5F56;
+}
+.col-lg-6.knonc .knonc-mutation-count-title > div {
+	border: 1px solid #45B2DF;
+	border-top: none;
+}
+.col-lg-6.cosmic .knonc-mutation-count-title > div {
+	border: 1px solid #DF5F56;
+	border-bottom: none;
+}
+.col-lg-6.knonc .knonc-mutation-count-detail {
+	background: #45B2DF;
+}
+.col-lg-6.cosmic .knonc-mutation-count-detail {
+	background: #DF5F56;
+}

@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Knonc</title>
+	<meta name="csrf-param" content="authenticity_token">
+	<meta name="csrf-token" content="vbhjbIG3u0VtTTPrBmW2MhMnGOSEYIyiWaOSF5BA3FTtlYTwGjkxR09lNz+L9zO4XmfBqmphID9AgpPxgkcalg==">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+	<link rel="stylesheet" media="all" href="./packs/application.css">
+	<!--cssを追加-->
+	<link rel="stylesheet" media="all" href="./packs/style.css">
+</head>
+<!--body classを追加 サブページにはすべてpageクラスを付与-->
+<body class="page">
+<div class="container container-large">
+  <div class="row" id="navbar-row" style="padding-bottom: 86px;">
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <a class="site-title" href="/"></a>
+      <ul class="nav navbar-nav navbar-left">
+        <li><a href="/">Home</a></li>
+        <li><a href="/studies">Clinical Data</a></li>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Genome Data<span class="caret"></span></a>
+          <ul class="dropdown-menu" tabindex="0">
+            <li><a href="/variants">Mutations</a></li>
+            <li><a href="/protein_paint">Protein Paint</a></li>
+            <li><a href="/structural_variants">Structural Variants</a></li>
+            <li><a href="/copy_number_variants">Copy Number Variants</a></li>
+          </ul>
+        </li>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Analysis<span class="caret"></span></a>
+          <ul class="dropdown-menu" tabindex="0">
+            <li><a href="/survival">Survival</a></li>
+            <li><a href="/reports">Report</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a class="button" href="https://docs.google.com/document/d/e/2PACX-1vQng94PRG8KpXBwC-OAyxea-Vsk3j-o7P3_1mbdCtWVW6sx93O7YDiQ3N5pGRVHL__hot7_TZrHFBsh/pub" id="button-help"><span class="icon-help"></span>Help</a></li>
+        <li class="dropdown"><a class="button dropdown-toggle" data-toggle="dropdown" href="#" id="button-user"><span class="icon-user"></span>TCCSG 太郎
+          <div class="caret"></div>
+          </a>
+          <ul class="dropdown-menu" tabindex="0">
+            <li><a id="sign_out" rel="nofollow" data-method="delete" href="/users/sign_out">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="row page-header"><!--classを追加-->
+    <h1>Report Search</h1>
+  </div>
+  <div class="row head-row"><!--classを追加-->
+    <div class="btn-group" data-toggle="buttons" id="toggle-input-or-paste">
+      <label class="btn btn-default active" tabindex="0">
+        <input autocomplete="off" checked="checked" name="input-or-paste" tabindex="-1" type="radio" value="input">
+        input</label>
+      <label class="btn btn-default" tabindex="1">
+        <input autocomplete="off" name="input-or-paste" tabindex="-1" type="radio" value="paste">
+        paste TSV</label>
+      <label class="btn btn-default" tabindex="2">
+        <input autocomplete="off" name="input-or-paste" tabindex="-1" type="radio" value="paste-genomon">
+        paste genomon</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6" id="query-input">
+      <table class="table" id="genes-query" style="margin-bottom:unset">
+        <thead>
+          <tr>
+            <th>Gene</th>
+            <th>Amino acid change</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><input type="text" id="query-gene-0" placeholder="gene name"></td>
+            <td><span>p.</span>
+              <input type="text" id="query-aa-0" placeholder="amino acid change"></td>
+          </tr>
+          <tr>
+            <td><input type="text" id="query-gene-1" placeholder="gene name"></td>
+            <td><span>p.</span>
+              <input type="text" id="query-aa-1" placeholder="amino acid change"></td>
+          </tr>
+          <tr>
+            <td><input type="text" id="query-gene-2" placeholder="gene name"></td>
+            <td><span>p.</span>
+              <input type="text" id="query-aa-2" placeholder="amino acid change"></td>
+          </tr>
+          <tr>
+            <td><input type="text" id="query-gene-3" placeholder="gene name"></td>
+            <td><span>p.</span>
+              <input type="text" id="query-aa-3" placeholder="amino acid change"></td>
+          </tr>
+          <tr>
+            <td><input type="text" id="query-gene-4" placeholder="gene name"></td>
+            <td><span>p.</span>
+              <input type="text" id="query-aa-4" placeholder="amino acid change"></td>
+          </tr>
+        </tbody>
+      </table>
+      <!--Addボタンをrowの中へ移動-->
+      <div class="row" style="margin-top:20px;">
+				<button class="btn btn-default" id="add-genes">Add</button>
+        <button class="btn btn-default" id="generate-by-input">Generate</button>
+      </div>
+    </div>
+    <div class="col-lg-6" id="query-paste" style="display: none;">
+      <dl>
+        <dt>paste from spread sheets</dt>
+        <dd>
+          <textarea cols="30" id="gene-aa-textarea" placeholder="pairs of Gene and Amino acid change" rows="6"></textarea>
+        </dd>
+      </dl>
+      <div class="row" style="margin-top:20px;">
+        <button class="btn btn-default" id="generate-by-paste">Generate</button>
+      </div>
+    </div>
+    <div class="col-lg-6" id="query-paste-genomon" style="display: none;">
+      <dl>
+        <dt>paste from genomon output file</dt>
+        <dd>
+          <textarea cols="30" id="gene-aa-genomon-textarea" placeholder="AAChange.refGene column values" rows="6"></textarea>
+        </dd>
+      </dl>
+      <div class="row" style="margin-top:20px;">
+        <button class="btn btn-default" id="generate-by-paste-genomon">Generate</button>
+      </div>
+    </div>
+  </div>
+  <!--<hr>を削除-->
+
+	<!--Report for XXX 部分の構造を変更-->
+  <div class="row page-header">
+    <h1>Report for KIT - D816V</h1>
+  </div>
+	<div class="row head-row"><!--divを追加-->
+		<!--.nav-tabsを独立したrowへ移動-->
+		<ul id="result-tabs" class="nav nav-tabs" role="tablist">
+			<li class="active" role="presentation"><a href="#gene-aa-0" data-toggle="tab" role="tab" aria-controls="gene-aa-0">KIT - D816V</a></li>
+			<li class="" role="presentation"><a href="#gene-aa-1" data-toggle="tab" role="tab" aria-controls="gene-aa-1">FLT3 - D835Y</a></li>
+			<li class="" role="presentation"><a href="#gene-aa-2" data-toggle="tab" role="tab" aria-controls="gene-aa-2">TP53 - R175H</a></li>
+			<li class="" role="presentation"><a href="#gene-aa-3" data-toggle="tab" role="tab" aria-controls="gene-aa-3">ASXL1 - R693X</a></li>
+			<li class="" role="presentation"><a href="#gene-aa-4" data-toggle="tab" role="tab" aria-controls="gene-aa-4">KRAS - G12D</a></li>
+		</ul>
+	</div>
+  <div class="row">
+    <div class="col-lg-12">
+      <div id="results">
+        <div class="tab-content">
+          <div class="tab-pane fade  in active" role="tabpanel" id="gene-aa-0">
+            <!--<h2>を削除-->
+            <h3>Clinical information</h3>
+						<div class="content-inner"><!--<h3>以下のコンテンツをdivで囲む-->
+							<div>
+								<h4>Japanese(Knonc)</h4>
+								<div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
+									<div class="dataTable-top">
+										<!--.dataTable-infoを.dataTable-top内に移動-->
+										<div class="dataTable-info">Showing 1 to 2 of 2 entries</div>
+										<div class="dataTable-dropdown">
+											<label>
+												<select class="dataTable-selector">
+													<option value="5">5</option>
+													<option value="10" selected="">10</option>
+													<option value="15">15</option>
+													<option value="20">20</option>
+													<option value="25">25</option>
+												</select>
+												entries per page</label>
+										</div>
+										<div class="dataTable-search">
+											<input class="dataTable-input" placeholder="Search..." type="text">
+										</div>
+									</div>
+									<div class="dataTable-container">
+										<table id="clinical-info-knonc-gene-aa-0" class="dataTable-table">
+											<thead>
+												<tr>
+													<th data-sortable=""><a href="#" class="dataTable-sorter">Diagnosis</a></th>
+													<th data-sortable=""><a href="#" class="dataTable-sorter">Patient</a></th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>急性骨髄性白血病</td>
+													<td>25</td>
+												</tr>
+												<tr>
+													<td>骨髄異形成症候群</td>
+													<td>2</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<div class="dataTable-bottom">
+										<div class="dataTable-pagination"></div>
+									</div>
+								</div>
+							</div>
+							<div>
+								<h4>COSMIC</h4>
+								<div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
+									<div class="dataTable-top">
+										<!--.dataTable-infoを.dataTable-top内に移動-->
+										<div class="dataTable-info">Showing 1 to 6 of 6 entries</div>
+										<div class="dataTable-dropdown">
+											<label>
+												<select class="dataTable-selector">
+													<option value="5">5</option>
+													<option value="10">10</option>
+													<option value="15">15</option>
+													<option value="20">20</option>
+													<option value="25">25</option>
+													<option value="50" selected="">50</option>
+												</select>
+												entries per page</label>
+										</div>
+										<div class="dataTable-search">
+											<input class="dataTable-input" placeholder="Search..." type="text">
+										</div>
+									</div>
+									<div class="dataTable-container">
+										<table id="clinical-info-cosmic-site-gene-aa-0" class="dataTable-table">
+											<thead>
+												<tr>
+													<th data-sortable=""><a href="#" class="dataTable-sorter">Site</a></th>
+													<th data-sortable=""><a href="#" class="dataTable-sorter">Patient</a></th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>haematopoietic_and_lymphoid_tissue</td>
+													<td>882</td>
+												</tr>
+												<tr>
+													<td>testis</td>
+													<td>17</td>
+												</tr>
+												<tr>
+													<td>ovary</td>
+													<td>6</td>
+												</tr>
+												<tr>
+													<td>genital_tract</td>
+													<td>6</td>
+												</tr>
+												<tr>
+													<td>skin</td>
+													<td>3</td>
+												</tr>
+												<tr>
+													<td>NS</td>
+													<td>1</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<div class="dataTable-bottom">
+										<div class="dataTable-pagination"></div>
+									</div>
+								</div>
+								<div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
+									<div class="dataTable-top">
+										<!--.dataTable-infoを.dataTable-top内に移動-->
+										<div class="dataTable-info">Showing 1 to 10 of 15 entries</div>
+										<div class="dataTable-dropdown">
+											<label>
+												<select class="dataTable-selector">
+													<option value="5">5</option>
+													<option value="10" selected="">10</option>
+													<option value="15">15</option>
+													<option value="20">20</option>
+													<option value="25">25</option>
+												</select>
+												entries per page</label>
+										</div>
+										<div class="dataTable-search">
+											<input class="dataTable-input" placeholder="Search..." type="text">
+										</div>
+									</div>
+									<div class="dataTable-container">
+										<table id="clinical-info-cosmic-gene-aa-0" class="dataTable-table">
+											<thead>
+												<tr>
+													<th data-sortable=""><a href="#" class="dataTable-sorter">Histology</a></th>
+													<th data-sortable=""><a href="#" class="dataTable-sorter">Histology subtype</a></th>
+													<th data-sortable=""><a href="#" class="dataTable-sorter">Site</a></th>
+													<th data-sortable=""><a href="#" class="dataTable-sorter">Patient</a></th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>haematopoietic_neoplasm</td>
+													<td>mast_cell_neoplasm</td>
+													<td>haematopoietic_and_lymphoid_tissue</td>
+													<td>728</td>
+												</tr>
+												<tr>
+													<td>haematopoietic_neoplasm</td>
+													<td>acute_myeloid_leukaemia</td>
+													<td>haematopoietic_and_lymphoid_tissue</td>
+													<td>147</td>
+												</tr>
+												<tr>
+													<td>germ_cell_tumour</td>
+													<td>seminoma</td>
+													<td>testis</td>
+													<td>17</td>
+												</tr>
+												<tr>
+													<td>germ_cell_tumour</td>
+													<td>seminoma</td>
+													<td>genital_tract</td>
+													<td>5</td>
+												</tr>
+												<tr>
+													<td>germ_cell_tumour</td>
+													<td>dysgerminoma</td>
+													<td>ovary</td>
+													<td>5</td>
+												</tr>
+												<tr>
+													<td>haematopoietic_neoplasm</td>
+													<td>acute_myeloid_leukaemia_therapy_related</td>
+													<td>haematopoietic_and_lymphoid_tissue</td>
+													<td>3</td>
+												</tr>
+												<tr>
+													<td>malignant_melanoma</td>
+													<td>NS</td>
+													<td>skin</td>
+													<td>2</td>
+												</tr>
+												<tr>
+													<td>malignant_melanoma</td>
+													<td>NS</td>
+													<td>NS</td>
+													<td>1</td>
+												</tr>
+												<tr>
+													<td>haematopoietic_neoplasm</td>
+													<td>myelodysplastic_syndrome</td>
+													<td>haematopoietic_and_lymphoid_tissue</td>
+													<td>1</td>
+												</tr>
+												<tr>
+													<td>haematopoietic_neoplasm</td>
+													<td>chronic_myelomonocytic_leukaemia</td>
+													<td>haematopoietic_and_lymphoid_tissue</td>
+													<td>1</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<div class="dataTable-bottom">
+										<div class="dataTable-pagination">
+											<li class="pager"><a href="#" data-page="1">‹</a></li>
+											<li class="active"><a href="#" data-page="1">1</a></li>
+											<li class=""><a href="#" data-page="2">2</a></li>
+											<li class="pager"><a href="#" data-page="2">›</a></li>
+										</div>
+									</div>
+								</div>
+							</div>						</div>
+
+            <h3>Protein paint</h3>
+						<!--.col-lg-12の位置を移動-->
+						<div class="col-lg-12">
+							<div id="protein-paint-legend-gene-aa-0" style="text-align: center; margin-bottom: 30px">
+								<div class="legend-item" style="display: inline-block; white-space: nowrap; padding: 5px 20px 5px 0px;">
+									<div style="display: inline-block; background-color: #ccc; margin-right: 5px;
+					border-radius: 15px; padding: 5px 20px 5px 0px;"></div>
+									<div style="display: inline-block; color: #ccc;">Other</div>
+								</div>
+								<div class="legend-item" style="display: inline-block; white-space: nowrap; padding: 5px 20px 5px 0px;">
+									<div style="display: inline-block; background-color: #aec7e8; margin-right: 5px;
+					border-radius: 15px; padding: 5px 20px 5px 0px;"></div>
+									<div style="display: inline-block; color: #aec7e8;">Frameshift</div>
+								</div>
+								<div class="legend-item" style="display: inline-block; white-space: nowrap; padding: 5px 20px 5px 0px;">
+									<div style="display: inline-block; background-color: #1f77b4; margin-right: 5px;
+					border-radius: 15px; padding: 5px 20px 5px 0px;"></div>
+									<div style="display: inline-block; color: #1f77b4;">Missense</div>
+								</div>
+								<div class="legend-item" style="display: inline-block; white-space: nowrap; padding: 5px 20px 5px 0px;">
+									<div style="display: inline-block; background-color: #2ca02c; margin-right: 5px;
+					border-radius: 15px; padding: 5px 20px 5px 0px;"></div>
+									<div style="display: inline-block; color: #2ca02c;">Silent</div>
+								</div>
+								<div class="legend-item" style="display: inline-block; white-space: nowrap; padding: 5px 20px 5px 0px;">
+									<div style="display: inline-block; background-color: #ff9896; margin-right: 5px;
+					border-radius: 15px; padding: 5px 20px 5px 0px;"></div>
+									<div style="display: inline-block; color: #ff9896;">Nonsense</div>
+								</div>
+								<div class="legend-item" style="display: inline-block; white-space: nowrap; padding: 5px 20px 5px 0px;">
+									<div style="display: inline-block; background-color: #ff7f0e; margin-right: 5px;
+					border-radius: 15px; padding: 5px 20px 5px 0px;"></div>
+									<div style="display: inline-block; color: #ff7f0e;">Protein Deletion</div>
+								</div>
+								<div class="legend-item" style="display: inline-block; white-space: nowrap; padding: 5px 20px 5px 0px;">
+									<div style="display: inline-block; background-color: #ffbb78; margin-right: 5px;
+					border-radius: 15px; padding: 5px 20px 5px 0px;"></div>
+									<div style="display: inline-block; color: #ffbb78;">Protein Insertion</div>
+								</div>
+							</div>
+						</div>
+						<!--id=protein-paintの構造を大きく変更-->
+            <div class="col-lg-12" style="margin-bottom: 40px;" id="protein-paint">
+              <div class="col-lg-6 knonc">
+								<div class="knonc-mutation-count-detail clearfix">
+									<div class="knonc-mutation-count-detail-0">Domestic distribution</div>
+									<div class="knonc-mutation-count-detail-3">Count: 26</div>
+									<div class="knonc-mutation-count-detail-2">Exonic Function: Missense</div>
+									<div class="knonc-mutation-count-detail-1">Position: 55599321</div>
+								</div>
+								<div class="knonc-mutation-count-title clearfix">
+									<h4>Knonc</h4>
+									<div>AA Change: D816V</div>
+								</div>
+              </div>
+              <div class="col-lg-12" style="text-align: center;">
+								<p id="sample">ここに図が入ります</p>
+              </div>
+
+              <div class="col-lg-6 cosmic">
+								<div class="knonc-mutation-count-title clearfix">
+									<h4>COSMIC</h4>
+									<div>AA Change: D816V</div>
+								</div>
+								<div class="knonc-mutation-count-detail clearfix">
+									<div class="knonc-mutation-count-detail-0">Overseas distribution</div>
+									<div class="knonc-mutation-count-detail-3">Count: 915</div>
+									<div class="knonc-mutation-count-detail-2">Exonic Function: Substitution - Missense</div>
+									<div class="knonc-mutation-count-detail-1">Position: 55599321</div>
+								</div>
+              </div>
+            </div>
+            <h3>Clinical impact</h3>
+						<div class="content-inner"><!--<h3>以下のコンテンツをdivで囲む-->
+							<div>
+								<div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
+									<div class="dataTable-top">
+										<!--.dataTable-infoを.dataTable-top内に移動-->
+										<div class="dataTable-info">Showing 1 to 10 of 12 entries</div>
+										<div class="dataTable-dropdown">
+											<label>
+												<select class="dataTable-selector">
+													<option value="5">5</option>
+													<option value="10" selected="">10</option>
+													<option value="15">15</option>
+													<option value="20">20</option>
+													<option value="25">25</option>
+													<option value="50">50</option>
+												</select>
+												entries per page</label>
+										</div>
+										<div class="dataTable-search">
+											<input class="dataTable-input" placeholder="Search..." type="text">
+										</div>
+									</div>
+									<div class="dataTable-container">
+										<table id="clinical-guidelines-gene-aa-0" class="dataTable-table">
+											<thead>
+												<tr>
+													<th data-sortable=""><a href="#" class="dataTable-sorter">Variant type</a></th>
+													<th data-sortable=""><a href="#" class="dataTable-sorter">Variant detail</a></th>
+													<th data-sortable=""><a href="#" class="dataTable-sorter">Category</a></th>
+													<th data-sortable=""><a href="#" class="dataTable-sorter">Evidence level</a></th>
+													<th data-sortable=""><a href="#" class="dataTable-sorter">Basis</a></th>
+													<th data-sortable=""><a href="#" class="dataTable-sorter">Medicine</a></th>
+													<th data-sortable=""><a href="#" class="dataTable-sorter">Disease</a></th>
+													<th data-sortable=""><a href="#" class="dataTable-sorter">Comment</a></th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>機能獲得（変異：D816Vなど）</td>
+													<td></td>
+													<td>治療</td>
+													<td>C, D</td>
+													<td>NCT01830361, NCT02680951, PMID: 18986703, 23149070</td>
+													<td></td>
+													<td>AML</td>
+													<td></td>
+												</tr>
+												<tr>
+													<td>機能獲得（変異：D816Vなど）</td>
+													<td></td>
+													<td>診断</td>
+													<td>A</td>
+													<td>WHO2017, NCCN2017</td>
+													<td></td>
+													<td>AML</td>
+													<td></td>
+												</tr>
+												<tr>
+													<td>機能獲得（変異：D816Vなど）</td>
+													<td></td>
+													<td>予後</td>
+													<td>A</td>
+													<td>WHO2017, ELN2017, PMID: 16384925</td>
+													<td></td>
+													<td>AML</td>
+													<td></td>
+												</tr>
+												<tr>
+													<td>機能獲得（変異：D816V）</td>
+													<td></td>
+													<td>診断</td>
+													<td>A</td>
+													<td>WHO2017</td>
+													<td></td>
+													<td>Mastocytosis</td>
+													<td></td>
+												</tr>
+												<tr>
+													<td>活性化変異</td>
+													<td></td>
+													<td>治療効果</td>
+													<td>2A</td>
+													<td>FDA Guidelines, GIST診療ガイドライン</td>
+													<td>イマチニブ/スニチニブ/レゴラフェニブ</td>
+													<td>消化管間質腫瘍</td>
+													<td>イマチニブ：日本で承認済み（KIT（CD117）陽性消
+														化管間質腫瘍）/スニチニブ：日本で承認済み（イマチニブ抵抗性の消化管間質腫瘍）/レゴラフェニブ：日本で承認済み（がん化学療法後に増悪した消化管間質腫瘍）
+														*当該バイオマーカーは未承認</td>
+												</tr>
+												<tr>
+													<td>活性化変異</td>
+													<td></td>
+													<td>治療効果</td>
+													<td>2A</td>
+													<td>NCCN G uidelines</td>
+													<td>イマチニブ</td>
+													<td>悪性黒色腫</td>
+													<td></td>
+												</tr>
+												<tr>
+													<td>活性化変異</td>
+													<td></td>
+													<td>治療効果</td>
+													<td>3A</td>
+													<td>19461405/21969494/23375402</td>
+													<td>ソラフェニブ/イマチニブ/スニチニブ/ダサ
+														チニブ</td>
+													<td>胸腺がん</td>
+													<td></td>
+												</tr>
+												<tr>
+													<td>活性化変異</td>
+													<td></td>
+													<td>治療効果</td>
+													<td>2A</td>
+													<td>22370312</td>
+													<td>イマチニブ</td>
+													<td>肥満細胞腫</td>
+													<td></td>
+												</tr>
+												<tr>
+													<td>活性化変異</td>
+													<td></td>
+													<td>治療効果</td>
+													<td>2A</td>
+													<td>18559612</td>
+													<td>ダサチニブ</td>
+													<td>肥満細胞腫</td>
+													<td></td>
+												</tr>
+												<tr>
+													<td>活性化変異</td>
+													<td></td>
+													<td>治療効果</td>
+													<td>3B</td>
+													<td>22301675</td>
+													<td>イマチニブ/ポナチニブ</td>
+													<td>肥満細胞腫</td>
+													<td></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<div class="dataTable-bottom">
+										<div class="dataTable-pagination">
+											<li class="pager"><a href="#" data-page="1">‹</a></li>
+											<li class="active"><a href="#" data-page="1">1</a></li>
+											<li class=""><a href="#" data-page="2">2</a></li>
+											<li class="pager"><a href="#" data-page="2">›</a></li>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+            <h3>Drugs</h3>
+						<div class="content-inner"><!--<h3>以下のコンテンツをdivで囲む-->
+							<div>
+								<div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
+									<div class="dataTable-top">
+										<!--.dataTable-infoを.dataTable-top内に移動-->
+										<div class="dataTable-info">Showing 1 to 10 of 15 entries</div>
+										<div class="dataTable-dropdown">
+											<label>
+												<select class="dataTable-selector">
+													<option value="5">5</option>
+													<option value="10" selected="">10</option>
+													<option value="15">15</option>
+													<option value="20">20</option>
+													<option value="25">25</option>
+												</select>
+												entries per page</label>
+										</div>
+										<div class="dataTable-search">
+											<input class="dataTable-input" placeholder="Search..." type="text">
+										</div>
+									</div>
+									<div class="dataTable-container">
+										<table id="drugs-gene-aa-0" class="dataTable-table">
+											<thead>
+												<tr>
+													<th data-sortable=""><a href="#" class="dataTable-sorter">Drug name</a></th>
+													<th data-sortable=""><a href="#" class="dataTable-sorter">Compound</a></th>
+													<th data-sortable=""><a href="#" class="dataTable-sorter">FDA - approved indication</a></th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Inlyta</td>
+													<td>Axitinib</td>
+													<td>Renal cell carcinoma</td>
+												</tr>
+												<tr>
+													<td>Cabometyx</td>
+													<td>Cabozantinib</td>
+													<td>Medullary thyroid cancer</td>
+												</tr>
+												<tr>
+													<td>Cabometyx</td>
+													<td>Cabozantinib</td>
+													<td>Renal cell carcinoma</td>
+												</tr>
+												<tr>
+													<td>Cometriq</td>
+													<td>Cabozantinib</td>
+													<td>Medullary thyroid cancer</td>
+												</tr>
+												<tr>
+													<td>Cometriq</td>
+													<td>Cabozantinib</td>
+													<td>Renal cell carcinoma</td>
+												</tr>
+												<tr>
+													<td>Gleevec</td>
+													<td>Imatinib</td>
+													<td>GI stromal tumor (KIT+)</td>
+												</tr>
+												<tr>
+													<td>Gleevec</td>
+													<td>Imatinib</td>
+													<td>Dermatofibrosarcoma protuberans</td>
+												</tr>
+												<tr>
+													<td>Gleevec</td>
+													<td>Imatinib</td>
+													<td>Multiple hematologic malignancies including Philadelphia chromosome-positive ALL and CML</td>
+												</tr>
+												<tr>
+													<td>Votrient</td>
+													<td>Pazopanib</td>
+													<td>Renal cell carcinoma</td>
+												</tr>
+												<tr>
+													<td>Stivarga</td>
+													<td>Regorafenib</td>
+													<td>Colorectal cancer</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<div class="dataTable-bottom">
+										<div class="dataTable-pagination">
+											<li class="pager"><a href="#" data-page="1">‹</a></li>
+											<li class="active"><a href="#" data-page="1">1</a></li>
+											<li class=""><a href="#" data-page="2">2</a></li>
+											<li class="pager"><a href="#" data-page="2">›</a></li>
+										</div>
+									</div>
+								</div>
+							</div>						</div>
+
+            <h3>Clinical trials</h3>
+						<div class="content-inner"><!--<h3>以下のコンテンツをdivで囲む-->
+							<h4>Japan Primary Registries Network (JPRN)</h4>
+							<div>
+								<div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
+									<div class="dataTable-top">
+										<!--.dataTable-infoを.dataTable-top内に移動-->
+										<div class="dataTable-info">Showing 1 to 3 of 3 entries</div>
+										<div class="dataTable-dropdown">
+											<label>
+												<select class="dataTable-selector">
+													<option value="5">5</option>
+													<option value="10" selected="">10</option>
+													<option value="15">15</option>
+													<option value="20">20</option>
+													<option value="25">25</option>
+												</select>
+												entries per page</label>
+										</div>
+										<div class="dataTable-search">
+											<input class="dataTable-input" placeholder="Search..." type="text">
+										</div>
+									</div>
+									<div class="dataTable-container">
+										<table id="rctportal-clinical-trials-gene-aa-0" class="dataTable-table">
+											<thead>
+												<tr>
+													<th data-sortable=""><a href="#" class="dataTable-sorter">State</a></th>
+													<th data-sortable=""><a href="#" class="dataTable-sorter">Title</a></th>
+													<th data-sortable=""><a href="#" class="dataTable-sorter">Disease</a></th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>参加者募集中</td>
+													<td><a href="https://rctportal.niph.go.jp/detail/jp?trial_id=JapicCTI-173715">進行肝細胞癌患者に対する一次治療としてアベルマブとアキシチニブの併用投与を検討する単群，非盲検第1相試験（治験実施計画書番号：B9991024）</a></td>
+													<td>新生物</td>
+												</tr>
+												<tr>
+													<td>参加者募集中</td>
+													<td><a href="https://rctportal.niph.go.jp/detail/jp?trial_id=JapicCTI-163175">スニチニブ（スーテント）単剤投与を対照としてavelumab（MSB0010718C）とアキシチニブ（インライタ）の併用投与を検討する一次治療の進行腎細胞癌患者を対象とした，無作為化，非盲検，並行群間比較，国際共同第3相試験(治験実施計画書番号:B9991003)</a></td>
+													<td>腎細胞癌</td>
+												</tr>
+												<tr>
+													<td>募集前</td>
+													<td><a href="https://rctportal.niph.go.jp/detail/um?trial_id=UMIN000011147">テーラーメイド医療をめざした分子標的治療チロシンキナーゼ阻害剤（アキシチニブ）至適投与量決定のための薬物動態と臨床評価に関する探索的研究</a></td>
+													<td>有転移性腎細胞癌</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<div class="dataTable-bottom">
+										<div class="dataTable-pagination"></div>
+									</div>
+								</div>
+							</div>
+							<h4>ClinicalTrials.gov</h4>
+							<div>
+								<div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
+									<div class="dataTable-top">
+										<!--.dataTable-infoを.dataTable-top内に移動-->
+										<div class="dataTable-info">Showing 1 to 2 of 2 entries</div>
+										<div class="dataTable-dropdown">
+											<label>
+												<select class="dataTable-selector">
+													<option value="5">5</option>
+													<option value="10" selected="">10</option>
+													<option value="15">15</option>
+													<option value="20">20</option>
+													<option value="25">25</option>
+												</select>
+												entries per page</label>
+										</div>
+										<div class="dataTable-search">
+											<input class="dataTable-input" placeholder="Search..." type="text">
+										</div>
+									</div>
+									<div class="dataTable-container">
+										<table id="clinical-trials-gene-aa-0" class="dataTable-table">
+											<thead>
+												<tr>
+													<th data-sortable=""><a href="#" class="dataTable-sorter">NCT id</a></th>
+													<th data-sortable=""><a href="#" class="dataTable-sorter">Brief title</a></th>
+													<th data-sortable=""><a href="#" class="dataTable-sorter">Sponsor</a></th>
+													<th data-sortable=""><a href="#" class="dataTable-sorter">Countries</a></th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td><a href="https://ClinicalTrials.gov/show/NCT02684006">NCT02684006</a></td>
+													<td>A Study of Avelumab With Axitinib Versus Sunitinib In Advanced Renal Cell Cancer (JAVELIN Renal 101)</td>
+													<td>Pfizer</td>
+													<td>Australia / Austria / Belgium / Canada / Denmark / France / Germany / Hungary / Israel / Italy / Japan / Korea, Republic of / Mexico / Netherlands / New Zealand / Romania / Russian Federation / Spain / Sweden / United Kingdom / United States</td>
+												</tr>
+												<tr>
+													<td><a href="https://ClinicalTrials.gov/show/NCT03289533">NCT03289533</a></td>
+													<td>A Study Of Avelumab In Combination With Axitinib In Advanced HCC (VEGF Liver 100)</td>
+													<td>Pfizer</td>
+													<td>Japan</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<div class="dataTable-bottom">
+										<div class="dataTable-pagination"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="./packs/reports.js"></script>
+  <link rel="stylesheet" media="all" href="./packs/reports.css">
+  <div class="row" id="footer">
+    <nav class="nav-footer">
+      <ul class="navbar-nav navbar-left">
+        <li><a href="/">Site Home</a></li>
+      </ul>
+    </nav>
+    <div class="copyright">
+      <p>2018 © NHO Nagoya Medical Center - <b>Kn</b>owledge base for <b>onc</b>ology</p>
+    </div>
+  </div>
+</div>
+<script src="./packs/application.js"></script>
+<div class="tooltip" style="pointer-events: none; opacity: 0;"></div>
+<div class="tooltip" style="pointer-events: none; opacity: 0;"></div>
+<div class="tooltip" style="pointer-events: none; opacity: 0;"></div>
+<div class="tooltip" style="pointer-events: none; opacity: 0;"></div>
+<div class="tooltip" style="pointer-events: none; opacity: 0;"></div>
+<div class="tooltip" style="pointer-events: none; opacity: 0;"></div>
+<div class="tooltip" style="pointer-events: none; opacity: 0;"></div>
+<div class="tooltip" style="pointer-events: none; opacity: 0;"></div>
+<div class="tooltip" style="pointer-events: none; opacity: 0;"></div>
+<div class="tooltip" style="pointer-events: none; opacity: 0;"></div>
+<div class="tooltip" style="pointer-events: none; opacity: 0;"></div>
+<div class="tooltip" style="pointer-events: none; opacity: 0;"></div>
+<div class="tooltip" style="pointer-events: none; opacity: 0;"></div>
+<div class="tooltip" style="pointer-events: none; opacity: 0;"></div>
+<div class="tooltip" style="pointer-events: none; opacity: 0;"></div>
+<div class="tooltip" style="pointer-events: none; opacity: 0;"></div>
+<div class="tooltip" style="pointer-events: none; opacity: 0;"></div>
+<div class="tooltip" style="pointer-events: none; opacity: 0;"></div>
+<div class="tooltip" style="pointer-events: none; opacity: 0;"></div>
+<div class="tooltip" style="pointer-events: none; opacity: 0;"></div>
+<div class="tooltip" style="pointer-events: none; opacity: 0;"></div>
+<div class="tooltip" style="pointer-events: none; opacity: 0;"></div>
+<div class="tooltip" style="pointer-events: none; opacity: 0;"></div>
+<div class="tooltip" style="pointer-events: none; opacity: 0;"></div>
+</body>
+</html>

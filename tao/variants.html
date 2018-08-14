@@ -1,0 +1,331 @@
+<!doctype html>
+<html>
+<head>
+	<title>Knonc</title>
+	<meta name="csrf-param" content="authenticity_token">
+	<meta name="csrf-token" content="qzw08Pgq0/rd1cvl1Yt0XH6IcF+x0sVC067JFSXNwNkGfAGApQg238wIAwVtauirQyq3C7xKEstkUNxDIcjVWA==">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+	<link rel="stylesheet" media="all" href="./packs/application.css">
+	<link href="./paplot/layout/paplot.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" media="all" href="./packs/style.css">
+</head>
+<body>
+<div class="container container-large">
+  <div class="row" id="navbar-row" style="padding-bottom: 70px;">
+    <nav class="navbar navbar-default navbar-fixed-top"><a class="site-title" href="/"></a>
+      <ul class="nav navbar-nav navbar-left">
+        <li><a href="/">Home</a></li>
+        <li><a href="/studies">Clinical Data</a></li>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Genome Data<span class="caret"></span></a>
+          <ul class="dropdown-menu" tabindex="0">
+            <li><a href="/variants">Mutations</a></li>
+            <li><a href="/protein_paint">Protein Paint</a></li>
+            <li><a href="/structural_variants">Structural Variants</a></li>
+            <li><a href="/copy_number_variants">Copy Number Variants</a></li>
+          </ul>
+        </li>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Analysis<span class="caret"></span></a>
+          <ul class="dropdown-menu" tabindex="0">
+            <li><a href="/survival">Survival</a></li>
+            <li><a href="/reports">Report</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a class="button" href="https://docs.google.com/document/d/e/2PACX-1vQng94PRG8KpXBwC-OAyxea-Vsk3j-o7P3_1mbdCtWVW6sx93O7YDiQ3N5pGRVHL__hot7_TZrHFBsh/pub" id="button-help"><span class="icon-help"></span>Help</a></li>
+        <li class="dropdown"><a class="button dropdown-toggle" data-toggle="dropdown" href="#" id="button-user"><span class="icon-user"></span>TCCSG 太郎
+          <div class="caret"></div>
+          </a>
+          <ul class="dropdown-menu" tabindex="0">
+            <li><a id="sign_out" rel="nofollow" data-method="delete" href="/users/sign_out"><span class="icon-logout"></span>Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="page">
+		<div class="row page-header">
+			<h1>Mutation matrix</h1>
+		</div>
+		
+    <div class="row clearfix" id="filtering_and_sorting">
+			<div id="sorting">
+				<h3>Sorting</h3>
+				<div class="content-inner">
+					<div id="x_axis" class="table_row">
+						<h4>X-axis<span>sample ID (ASC)</span></h4>
+						<div class="selected_text" id="sort_x_text"></div>
+						<dl class="tabletype_2cols">
+							<dt>Genes</dt>
+							<dd>
+								<div class="form-inline">
+									<div class="radio">
+										<input checked="checked" id="xGene_0" name="gene" type="radio" value="0">
+										<label class="radio" for="xGene_0">None</label>
+									</div>
+									<div class="radio">
+										<input id="xGene_1" name="gene" type="radio" value="1">
+										<label class="radio" for="xGene_1">ASC</label>
+									</div>
+									<div class="radio">
+										<input id="xGene_2" name="gene" type="radio" value="2">
+										<label class="radio" for="xGene_2">DESC</label>
+									</div>
+								</div>
+							</dd>
+							<dt>Select gene name</dt>
+							<dd>
+								<select id="gene_list">
+									<option value="ABL1" selected="selected">ABL1</option>
+									<option value="ASXL1">ASXL1</option>
+									<option value="ASXL2">ASXL2</option>
+									<option value="ATF7IP">ATF7IP</option>
+									<option value="ATM">ATM</option>
+									<option value="ATRX">ATRX</option>
+									<option value="BCOR">BCOR</option>
+									<option value="BCORL1">BCORL1</option>
+									<option value="BRAF">BRAF</option>
+									<option value="BRCC3">BRCC3</option>
+									<option value="CALR">CALR</option>
+									<option value="CBL">CBL</option>
+									<option value="CCND3">CCND3</option>
+									<option value="CDKN2A">CDKN2A</option>
+									<option value="CEBPA">CEBPA</option>
+									<option value="CFTR">CFTR</option>
+									<option value="CNOT3">CNOT3</option>
+									<option value="CREBBP">CREBBP</option>
+									<option value="CSF3R">CSF3R</option>
+									<option value="CTCF">CTCF</option>
+									<option value="CUX1">CUX1</option>
+									<option value="DCLRE1C">DCLRE1C</option>
+									<option value="DDX41">DDX41</option>
+									<option value="DNMT3A">DNMT3A</option>
+									<option value="DOT1L">DOT1L</option>
+									<option value="EBF1">EBF1</option>
+									<option value="EP300">EP300</option>
+									<option value="EPHB1">EPHB1</option>
+									<option value="ERG">ERG</option>
+									<option value="ETNK1">ETNK1</option>
+									<option value="ETV6">ETV6</option>
+									<option value="EZH2">EZH2</option>
+									<option value="FLT3">FLT3</option>
+									<option value="GATA2">GATA2</option>
+									<option value="GNAS">GNAS</option>
+									<option value="GNB1">GNB1</option>
+									<option value="IDH1">IDH1</option>
+									<option value="IDH2">IDH2</option>
+									<option value="IKZF3">IKZF3</option>
+									<option value="IL3RA">IL3RA</option>
+									<option value="IL7R">IL7R</option>
+									<option value="JAK2">JAK2</option>
+									<option value="JARID2">JARID2</option>
+									<option value="KDM6A">KDM6A</option>
+									<option value="KIT">KIT</option>
+									<option value="KMT2C">KMT2C</option>
+									<option value="KMT2D">KMT2D</option>
+									<option value="KRAS">KRAS</option>
+									<option value="LMO2">LMO2</option>
+									<option value="LUC7L2">LUC7L2</option>
+									<option value="MPL">MPL</option>
+									<option value="MRE11A">MRE11A</option>
+									<option value="NCOR1">NCOR1</option>
+									<option value="NDC80">NDC80</option>
+									<option value="NF1">NF1</option>
+									<option value="NFE2">NFE2</option>
+									<option value="NPM1">NPM1</option>
+									<option value="NR3C1">NR3C1</option>
+									<option value="NRAS">NRAS</option>
+									<option value="PAX5">PAX5</option>
+									<option value="PHF6">PHF6</option>
+									<option value="PIK3CD">PIK3CD</option>
+									<option value="POLE">POLE</option>
+									<option value="PRPF8">PRPF8</option>
+									<option value="PTPN11">PTPN11</option>
+									<option value="RIT1">RIT1</option>
+									<option value="RUNX1">RUNX1</option>
+									<option value="SETBP1">SETBP1</option>
+									<option value="SETD2">SETD2</option>
+									<option value="SF3A1">SF3A1</option>
+									<option value="SF3B1">SF3B1</option>
+									<option value="SH2B3">SH2B3</option>
+									<option value="SMC1A">SMC1A</option>
+									<option value="SMC3">SMC3</option>
+									<option value="SRSF2">SRSF2</option>
+									<option value="STAG2">STAG2</option>
+									<option value="SUZ12">SUZ12</option>
+									<option value="TET2">TET2</option>
+									<option value="TP53">TP53</option>
+									<option value="TRRAP">TRRAP</option>
+									<option value="U2AF1">U2AF1</option>
+									<option value="U2AF2">U2AF2</option>
+									<option value="USH2A">USH2A</option>
+									<option value="VEGFC">VEGFC</option>
+									<option value="WHSC1">WHSC1</option>
+									<option value="WT1">WT1</option>
+									<option value="ZEB2">ZEB2</option>
+									<option value="ZRSR2">ZRSR2</option>
+								</select>
+								<input onclick="sort_gene()" style="margin-left:10" type="button" value="Add sort key">							
+							</dd>
+
+							<dt>Automatic Gantt-chart</dt>
+							<dd>Use genes top
+								<input id="waterfall_number" min="1" name="waterfall_number" step="1" style="width:80px;" type="number" value="30">
+								<input onclick="sort_waterfall()" style="margin-left:10" type="button" value="Gantt-chart">
+							</dd>
+						</dl>
+					</div>
+					<div id="y_axis" class="table_row">
+						<h4>Y-axis<span>Number of mutations (DESC)</span></h4>
+						<div class="selected_text" id="sort_y_text"></div>
+						<dl class="tabletype_2cols">
+							<dt>Mutation number</dt>
+							<dd>
+								<div class="form-inline">
+									<div class="radio">
+										<input id="yNum_0" name="mutation_sum" onclick="sort('number_of_mutations', 0, 'y')" type="radio" value="0">
+										<label class="radio" for="yNum_0">None</label>
+									</div>
+									<div class="radio">
+										<input id="yNum_1" name="mutation_sum" onclick="sort('number_of_mutations', 1, 'y')" type="radio" value="1">
+										<label class="radio" for="yNum_1">ASC</label>
+									</div>
+									<div class="radio">
+										<input checked="checked" id="yNum_2" name="mutation_sum" onclick="sort('number_of_mutations', 2, 'y')" type="radio" value="2">
+										<label class="radio" for="yNum_2">DESC</label>
+									</div>
+								</div>
+							</dd>
+							<dt>Gene name</dt>
+							<dd>
+								<div class="form-inline">
+									<div class="radio">
+										<input checked="checked" id="yGene_0" name="gene_name" onclick="sort('name', 0, 'y')" type="radio" value="0">
+										<label class="radio" for="yGene_0">None</label>
+									</div>
+									<div class="radio">
+										<input id="yGene_1" name="gene_name" onclick="sort('name', 1, 'y')" type="radio" value="1">
+										<label class="radio" for="yGene_1">ASC</label>
+									</div>
+									<div class="radio">
+										<input id="yGene_2" name="gene_name" onclick="sort('name', 2, 'y')" type="radio" value="2">
+										<label class="radio" for="yGene_2">DESC</label>
+									</div>
+								</div>
+							</dd>
+						</dl>
+					</div>
+					<div id="patients" class="table_row">
+						<h4>Patients</h4>
+						<dl class="tabletype_2cols">
+							<dt>Mutation number</dt>
+							<dd>
+								<div class="form-inline">
+									<div class="radio">
+										<input id="query_mutation_num_asc" name="query_mutation_num" type="radio" value="asc">
+										<label class="radio" for="query_mutation_num_asc">ASC</label>
+									</div>
+									<div class="radio">
+										<input checked="checked" id="query_mutation_num_desc" name="query_mutation_num" type="radio" value="desc">
+										<label class="radio" for="query_mutation_num_desc">DESC</label>
+									</div>
+									<button class="btn btn-default" id="refresh">Refresh</button>
+								</div>
+							</dd>
+						</dl>
+					</div>
+
+					<div class="reset_btn">
+						<input onclick="sort_reset('x')" style="margin-left:20" type="button" value="X-axis Reset">
+						<input onclick="sort_reset('y')" style="margin-left:20" type="button" value="Y-axis Reset">
+					</div>
+				</div>
+			</div>
+
+			<div id="filtering">
+				<h3>Filtering</h3>
+				<div class="content-inner">
+					<div class="form-group table_row" id="patient_filter">
+						<h4>Patient</h4>
+						<dl class="tabletype_2cols">
+							<dt>Display maximum</dt>
+							<dd>
+								<input id="viewsample_mutation_max" min="0" name="viewgene_rate" step="1" style="width:100px;" type="number" value="">
+								(Number of mutation)</dd>
+							<dt>Limit</dt>
+							<dd>
+								<div class="form-inline">
+									<input id="query_limit" min="0" name="query_limit" step="50" type="number" value="100">
+									<button class="btn btn-default" id="refresh">Refresh</button>
+								</div>
+							</dd>
+						</dl>
+						
+					</div>
+					<div class="form-group table_row" id="genes_filter">
+						<h4>Genes</h4>
+						<dl class="tabletype_2cols">
+							<dt id="filter_all_text_dt">The number of total genes detected mutations:88</dt>
+							<dt id="filter_text_dt">The number of filtered genes:88</dt>
+							<dt>Rate</dt>
+							<dd>
+								<input id="viewgene_rate" max="100" min="0" name="viewgene_rate" step="1" style="width:50px;" type="number" value="0">
+								% (Patients with mutation)</dd>
+							<dt>Display maximum</dt>
+							<dd>
+								<input id="viewgene_number" min="1" name="viewgene_number" step="1" style="width:100px;" type="number" value="100">
+								Genes</dd>
+						</dl>
+						
+					</div>
+					
+					<div class="reset_btn">
+						<input onclick="filter_gene()" style="margin-top:10" type="button" value="Update filter">
+						<button id="dw_btn" onclick="push_export()" style="margin-left: 20px; margin-top: 30px;" type="button"><img src="./paplot/layout/download.png" style="margin-right: 5px;">Export<div id="btn"></div></button>
+					</div>
+				</div>
+			</div>
+			
+    </div>
+
+    <div class="row" id="kari">
+			<p>ここにグラフが入ります</p>
+		</div>
+		
+    <div class="row" style="text-align: center;"><a href="https://github.com/Genomon-Project/paplot">Powered by paplot</a></div>
+    <div class="hidden" id="tooltip" style="left: 898.6px; top: 901.2px;">
+      <p id="text">
+      <pre>Patient:Trial3-1469, 5</pre>
+      </p>
+      <p id="text">
+      <pre>Function:exonic, 5</pre>
+      </p>
+    </div>
+    <div class="hidden" id="spin"></div>
+    <canvas class="hidden" id="dw_canvas"></canvas>
+  </div>
+  <script src="./paplot/lib/d3_v3.5.13/d3.min.js" type="text/javascript"></script>
+	<script src="./paplot/lib/d3-legend_v1.10.0/d3-legend.min.js" type="text/javascript"></script>
+	<script src="./paplot/layout/default.js" type="text/javascript"></script>
+	<script src="./paplot/js/utils.js" type="text/javascript"></script>
+	<script src="./paplot/js/bar.js" type="text/javascript"></script>
+	<script src="./paplot/js/checker.js" type="text/javascript"></script>
+	<script src="./paplot/data_for_mutation_matrix.js" type="text/javascript"></script>
+	<script src="./paplot/js/graph_mutation.js" type="text/javascript"></script>
+	<script src="./packs/variants.js"></script>
+	<link rel="stylesheet" media="all" href="./packs/variants.css">
+  <div class="row" id="footer">
+    <nav class="nav-footer">
+      <ul class="navbar-nav navbar-left">
+        <li><a href="/">Site Home</a></li>
+      </ul>
+    </nav>
+    <div class="copyright">
+      <p>2018 © NHO Nagoya Medical Center -<span class="brand-prefix">Kn</span><span class="brand-name">owledge base for</span><span class="brand-prefix">onc</span><span class="brand-name">ology</span></p>
+    </div>
+  </div>
+</div>
+<script src="./packs/application.js"></script>
+</body>
+</html>

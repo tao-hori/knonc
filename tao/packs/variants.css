@@ -1,0 +1,62 @@
+.form-inline {
+	padding-top: 2px;
+}
+.radio {
+	padding-right: 5px;
+}
+input[type="number"] {
+	width: 100px;
+}
+select#gene_list {
+	width: 180px;
+}
+#filtering_and_sorting .content-inner {
+	padding: 0 20px;
+}
+#sorting {
+	width: 50%;
+	padding-right: 20px;
+	float: left;
+}
+#filtering {
+	width: 50%;
+	padding-left: 20px;
+	float: left;
+}
+#filtering_and_sorting h4 {
+	width: 28.5%;
+}
+#filtering_and_sorting h4 span {
+	display: block;
+	font-size: 12px;
+	padding-top: 10px;
+}
+#filtering_and_sorting dl {
+	width: 100%;
+}
+#filtering_and_sorting dt {
+	width: 28.5%;
+}
+#x_axis, #y_axis,
+#patient_filter {
+	margin-bottom: 0;
+}
+#x_axis dl, #y_axis dl,
+#patient_filter dl {
+	border-bottom: 0;
+}
+#x_axis h4, #y_axis h4,
+#patient_filter h4 {
+	border-bottom: 1px solid #fff;
+}
+#filter_all_text_dt,
+#filter_text_dt {
+	width: 100% !important;
+	float: none;
+}
+#filtering dd {
+	padding-top: 10px
+}
+#matrix {
+  margin-left: 50px;
+}

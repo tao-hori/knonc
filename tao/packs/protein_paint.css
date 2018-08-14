@@ -1,0 +1,120 @@
+div.tooltip {
+	position: absolute;
+	text-align: left;
+	padding: 2px;
+	font: 12px sans-serif;
+	background: #b0c4de;
+	border: 0;
+	border-radius: 8px
+}
+.mutation-count {
+	width: 50px
+}
+.display-mode {
+	font-weight: 700;
+	margin-bottom: 10px
+}
+.panel-body {
+	padding-bottom: unset
+}
+#protein-paint-legend {
+	text-align: center;
+	margin-top: 15px;
+	margin-bottom: 30px
+}
+#frame-display-mode-group {
+	margin-left: 25px
+}
+
+#select_gene_name {
+	width: 100%;
+	margin: 48px 0;
+}
+#select_gene_name input#gene {
+	display: inline-block;
+	max-width: 480px;
+}
+
+#protein-paint > h3 {
+	margin-top: 0;
+}
+.btn-group > .btn {
+	margin-left: 15px !important;
+	margin-right: 15px !important;
+	padding: 8px 45px;
+}
+.btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
+	border-bottom-right-radius: 4px;
+	border-top-right-radius: 4px;
+}
+.btn-group > .btn:last-child:not(:first-child),
+.btn-group > .dropdown-toggle:not(:first-child) {
+	border-bottom-left-radius: 4px;
+	border-top-left-radius: 4px; 
+}
+
+.display-mode {
+	float: left;
+	width: 38%;
+	margin: 0;
+}
+#protein-paint-legend {
+	float: left;
+	width: 62%;
+	margin: 0;
+	font-size: 0.9em;
+}
+
+.content-inner > .row > .col-lg-6 {
+	width: 100%;
+}
+.panel-default {
+	display: flex;
+	width: 100%;
+	border: none;
+	box-shadow: none;
+}
+.panel-heading {
+	width: 200px;
+	padding: 30px 55px;
+	color: #fff !important;
+	border: 1px solid #45B2DF !important;
+	border-radius: 0;
+	background-color: #45B2DF !important;
+}
+.panel-heading#cosmic {
+	border: 1px solid #DF5F56 !important;
+	background-color: #DF5F56 !important;
+}
+.panel-body {
+	display: flex;
+	width: 100%;
+	align-items: center;
+	padding: 0;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+.panel-body .form-inline {
+	display: flex;
+}
+.panel-body .form-inline dl {
+	display: flex;
+	align-items: center;
+	padding-left: 80px;
+}
+.panel-body .form-inline dt {
+	padding-right: 1em;
+	font-weight: normal;
+}
+.panel-body .form-inline input {
+	width: 180px;
+}
+.dl-horizontal dt {
+	float: none;
+	width: auto;
+	text-align: left;
+}
+.dl-horizontal dd {
+	margin-left: 0;
+}
+/*# sourceMappingURL=protein_paint-0852048b25d7585174165cb7f819775b.css.map*/
