@@ -12,14 +12,46 @@
 div.tooltip {
   position: absolute;
   text-align: center;
-  width: 100px;
-  padding: 2px;
+	width: 305px !important;
+  padding: 0;
   font: 12px sans-serif;
-  background: lightsteelblue;
+	background: none;
   border: 0px;
   border-radius: 8px;
 }
-
+div.tooltip .title {
+	position: relative;
+	padding: 0.8em 8px;
+	color: #fff;
+	font-weight: normal;
+	background: #008BC2;
+	border-radius: 2px;
+}
+div.tooltip .title:after {
+	content: "";
+	display: block;
+	width: 16px;
+	height: 8px;
+	margin: 0 auto;
+	position: absolute;
+	top: -7px;
+	left: 0;
+	right: 0;
+	background: url(../images/bg_top_diseases.svg) no-repeat;
+}
+div.tooltip .value {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0.4em 8px;
+	font-size: 26px;
+	background: #fff;
+	border-radius: 2px;
+}
+div.tooltip .value span {
+	padding-left: 1.2em;
+	font-size: 0.62em;
+}
 .axis--x path {
   display: none;
 }
