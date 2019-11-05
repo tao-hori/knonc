@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="30.627" viewBox="0 0 36 30.627">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <title>btn_topmenu</title>
+  <g id="レイヤー_2" data-name="レイヤー 2">
+    <g id="ヘッダーとフッター">
+      <g>
+        <rect class="cls-1" width="36" height="5.91"/>
+        <rect class="cls-1" y="12.358" width="36" height="5.91"/>
+        <rect class="cls-1" y="24.716" width="36" height="5.91"/>
+      </g>
+    </g>
+  </g>
+</svg>

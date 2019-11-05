@@ -1,0 +1,386 @@
+/*-------------------------------------------*/
+/*	開発用にcssを上書き
+/*	本番用に反映する際に不要であれば削除してください
+/*-------------------------------------------*/
+/* application.css */
+body>.fixed-top .navbar-brand:before {
+	content: url("./logo_nav-brand.svg");
+}
+body>.fixed-top .help-link:before {
+	content: url("./icon_help.svg");
+}
+body>.fixed-top .user-link:before {
+	content: url("./icon_user.svg");
+}
+body>.fixed-top #sign-in .icon-logout:before {
+	content: url("./icon_logout.svg");
+}
+/* overview.css */
+.pickup-row #card-about h1:before {
+	background-image: url("./icon_about-knonc.svg");
+}
+.pickup-row #card-analyze h1:before {
+	background-image: url("./icon_analyze.svg");
+}
+.pickup-row #card-database h1:before {
+	background-image: url("./icon_database.svg");
+}
+.overview .stat-left {
+	background: url("./bg_stat-left.svg");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+.overview .stat-right {
+	background: url("./bg_stat-right.svg");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+/*-------------------------------------------*/
+/*	Common
+/*-------------------------------------------*/
+.display-lg {
+	display: block;
+}
+.display-md, .display-sm, .display-xs {
+	display: none;
+}
+.hidden-lg {
+	display: none;
+}
+.hidden-md, .hidden-sm, .hidden-xs {
+	display: block;
+}
+
+/*-------------------------------------------*/
+/*	Compact PC
+/*-------------------------------------------*/
+@media (max-width: 1260px){
+	.display-md {
+		display: block;
+	}
+	.hidden-md {
+		display: none;
+	}
+	.pickup-row .column {
+		width: 300px;
+	}
+	.pickup-row .pickup-card {
+		width: 300px;
+	}
+	.pickup-row h1 {
+		font-size: 24px;
+	}
+	.pickup-row h1:before {
+		width: 40px;
+		height: 40px;
+	}
+	.overview .column {
+		width: 30%;
+	}
+
+/*-------------------------------------------*/
+/*	iPad 768px - 1024px
+/*-------------------------------------------*/
+@media (max-width: 1024px){
+	.display-sm {
+		display: block;
+	}
+	.hidden-sm {
+		display: none;
+	}
+	body {
+		position: relative;
+		padding-top: 78px;
+	}
+	body > .fixed-top {
+		height: 78px;
+		padding: 30px 15px 10px !important;
+	}
+	body > .fixed-top .navbar-brand {
+		width: 35%;
+		padding: 0;
+		margin: 0;
+	}
+	body > .fixed-top .navbar-brand:before {
+		display: block;
+		content: "";
+		height: 35px;
+		background: url("./logo_nav-brand.svg") no-repeat;
+    background-size: contain;
+	}
+	.menu-toggle {
+		display: none;
+	}
+	body.logged-in .menu-toggle {
+		display: block;
+		width: 38px;
+		height: 38px;
+		position: absolute;
+		right: 15px;
+		border-radius: 3px;
+		background-color: #464646;
+		background-image: url("./btn_topmenu.svg");
+		background-repeat: no-repeat;
+		background-size: 18px;
+		background-position: center;
+	}
+	body.logged-in #top-navbar {
+		display: none;
+		width: 100%;
+		position: absolute;
+		top: 78px;
+		left: 0;
+		background: rgba(35,38,40,0.9);
+	}
+	body.logged-in #top-navbar .navbar-nav {
+		display: block;
+		padding: 1em 15px;
+	}
+	body.logged-in #top-navbar .navbar-nav li {
+		list-style-type: square;
+	}
+	body.logged-in #top-navbar .navbar-nav li a,
+	body.logged-in #top-navbar .navbar-nav li span {
+		display: inline-block;
+		margin-bottom: 0.3em;
+	}
+	body.logged-in .navbar-expand .navbar-nav.ml-auto {
+		max-width: 45%;
+		margin-right: 50px;
+	}
+	body.logged-in .navbar-expand .navbar-nav.ml-auto li a {
+		padding-top: 0.65em !important;
+		padding-right: 1em !important;
+		padding-bottom: 0.65em !important;
+		padding-left: 1em !important;
+		font-size: 12px;
+	}
+	body.logged-in > .fixed-top #sign-in .dropdown-menu {
+		min-width: auto;
+	}
+	body.logged-in > .fixed-top #sign-in .dropdown-menu > li > a {
+		padding-top: 0.85em !important;
+		margin-bottom: 0;
+		font-size: 12px;
+	}
+	.pickup-row {
+		width: 100%;
+		height: auto;
+		color: #fff;
+		background: none;
+	}
+	body.logged-in .pickup-row {
+		display: none;
+	}
+	.pickup-inner {
+		position: relative;
+	}
+	.pickup-inner#pickup-about {
+		background: #32aadc;
+	}
+	.pickup-inner#pickup-analyze {
+		background: #ffb437;
+	}
+	.pickup-inner#pickup-database {
+		background: #dc5046;
+	}
+	.pickup-label {
+		padding: 15px;
+		background: url("./icon_togglebtn.svg") no-repeat right 15px center;
+		background-size: 13px;
+	}
+	.pickup-label span {
+		display: block;
+		height: 22px;
+		padding: 0 2em;
+		font-size: 18px;
+    font-weight: bold;
+		line-height: 22px;
+	}
+	#pickup-about .pickup-label span {
+		background: url("./icon_about-knonc_sm.svg") no-repeat left center;
+		background-size: 22px;
+	}
+	#pickup-analyze .pickup-label span {
+		background: url("./icon_analyze_sm.svg") no-repeat left center;
+		background-size: 22px;
+	}
+	#pickup-database .pickup-label span {
+		background: url("./icon_database_sm.svg") no-repeat left center;
+		background-size: contain;
+	}
+	.pickup-container {
+		display: none;
+		padding: 40px 15px 50px;
+		text-align: center;
+	}
+	.pickup-container h1 {
+		display: inline-block;
+		height: auto;
+		padding: 100px 0.3em 0;
+		margin: 0 auto 20px;
+		text-align: center;
+		line-height: 1.2em;
+		border-bottom: 2px solid #fff;
+	}
+	.pickup-container h1::before {
+		content: none;
+	}
+	#pickup-about .pickup-container h1 {
+		background: url("./icon_about-knonc.svg") no-repeat top center;
+		background-size: 80px;
+	}
+	#pickup-analyze .pickup-container h1 {
+		padding-top: 90px;
+		background: url("./icon_analyze.svg") no-repeat top center;
+		background-size: 80px;
+	}
+	#pickup-database .pickup-container h1 {
+		padding-top: 110px;
+		background: url("./icon_database.svg") no-repeat top center;
+		background-size: 80px;
+	}
+	.pickup-container p {
+		line-height: 1.8em;
+		text-align: left;
+	}
+	.toggle_btn_open.hidden,
+	.toggle_btn_close.hidden {
+		display: none;
+	}
+	.toggle_btn_close {
+		display: inline-block;
+		width: 40px;
+		height: 43px;
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		transform: rotate(180deg);
+		background: url("./icon_togglebtn.svg") no-repeat center;
+		background-size: 13px;
+	}
+	.overview {
+		flex-direction: column;
+		padding: 0 15px;
+	}
+	.overview .column {
+		width: 100%;
+		margin: 0;
+	}
+	.overview .stat {
+		max-width: 600px;
+	}
+	.overview .stat {
+		position: relative;
+		padding: 45px 35px !important;
+		margin: 0 auto;
+		background: #fff !important;
+	}
+	.overview .stat::after {
+		display: block;
+		content: "";
+		width: 100%;
+		height: 50px;
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: -50px;
+		margin: 0 auto;
+		background: url("./bg_stat.png") !important;
+		background-repeat: no-repeat !important;
+		background-size: 100% 50px !important;
+	}
+	.overview .stat ul li {
+		display: flex;
+		justify-content: space-evenly;
+		align-items: center;
+	}
+	.overview .stat ul li img {
+		width: 60px;
+		margin: 0;
+	}
+	.overview .stat ul li .name {
+		display: inline-block;
+		width: 50px;
+		font-weight: bold;
+	}
+	.overview .stat-right ul li .name {
+		width: 120px;
+	}
+	.overview .stat ul li .value {
+		width: 100px;
+    padding: 0 10px;
+    text-align: right;
+		font-weight: bold;
+	}
+	.overview #disease-patients-svg,
+	.overview #gene-mutations-svg {
+		width: 100%;
+		max-width: 600px;
+		margin: 0 auto;
+		text-align: center;
+	}
+	
+	#footer {
+		padding: 0 15px;
+		color: #fff;
+	}
+	.nav-footer.display-sm {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	#footer .nav-footer {
+		padding: 30px 0 20px;
+	}
+	#footer-help a {
+		padding: 8px 10px 8px 20px;
+		font-size: 16px;
+		background: url("./icon_help_sm.svg") no-repeat left center;
+		background-size: 16px;
+	}
+	#footer-feedback {
+		background: #464646;
+		border-radius: 3px;
+	}
+	#footer-feedback a {
+		height: 40px;
+		padding: 0 20px 0 48px;
+		font-size: 21px;
+		line-height: 40px;
+		background: url("./icon_feedback_sm.svg") no-repeat left 20px center;
+		background-size: 21px;
+	}
+	#btn-pagetop {
+		padding: 8px;
+		line-height: 0;
+		background: #464646;
+		border-radius: 3px;
+	}
+	#btn-pagetop a {
+		display: inline-block;
+		width: 24px;
+		height: 24px;
+		background: url("./btn_pagetop.svg") no-repeat;
+		background-size: contain;
+	}
+	#footer .copyright {
+		padding-bottom: 10px;
+	}
+}
+
+/*-------------------------------------------*/
+/*	iphone 375px - 767px
+/*-------------------------------------------*/
+@media (max-width: 767px){
+	.overview .column h1 {
+		margin-bottom: 0.3em !important;
+		font-size: 21px;
+		text-align: left !important;
+	}
+	.overview .stat-right ul li .name {
+		width: 90px;
+	}
+	
+}

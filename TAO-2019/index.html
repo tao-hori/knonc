@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Knonc</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="csrf-param" content="authenticity_token">
+	<meta name="csrf-token" content="CRuHH7Z2kTNU++TWTP4R2fpcdJ+4eQNmINkxgiM3b6OPIUNzsdaV1Zd8kD/+eArQrdUf/rDbgn0pfdDQ6l977A==">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+	<link rel="stylesheet" media="all" href="./packs/application.css">
+	<link rel="stylesheet" media="all" href="./packs/overview.css">
+	<link rel="stylesheet" media="all" href="./packs/mobile.css">
+</head>
+<body id="page-top" class="logged-in">
+<nav class="navbar fixed-top navbar-expand p-4 flex-nowrap">
+	<a class="navbar-brand" href="/"></a>
+	<a id="menu-toggle" class="menu-toggle display-sm hidden-lg"></a>
+  <div class="mx-auto" id="top-navbar">
+    <ul class="navbar-nav">
+      <li class="nav-item mx-2 display-lg hidden-sm"><a class="nav-link" href="/">Home</a></li>
+      <li class="nav-item dropdown mx-2 display-lg hidden-sm"><a aria-haspopup="" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button">Analysis</a>
+        <ul class="dropdown-menu">
+          <li><a href="/survival">Survival</a></li>
+          <li><a href="/reports">Report</a></li>
+        </ul>
+      </li>
+      <li class="display-sm hidden-lg"><a href="/">Home</a></li>
+      <li class="display-sm hidden-lg"><span>Analysis</span>
+        <ul>
+          <li><a href="/survival">Survival</a></li>
+          <li><a href="/reports">Report</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <ul class="navbar-nav ml-auto">
+    <div class="d-inline-flex">
+      <li class="nav-item mr-4 display-lg hidden-sm"><a class="feedback-link rounded d-inline-flex px-4 py-1" data-toggle="modal" href="#feedback">Feedback</a></li>
+      <li class="nav-item mr-4 display-lg hidden-sm"><a class="help-link rounded d-inline-flex px-4 py-1" href="https://docs.google.com/document/d/e/2PACX-1vQng94PRG8KpXBwC-OAyxea-Vsk3j-o7P3_1mbdCtWVW6sx93O7YDiQ3N5pGRVHL__hot7_TZrHFBsh/pub">Help</a></li>
+      <li class="nav-item dropdown" id="sign-in"><a aria-haspopup="" class="user-link rounded d-inline-flex text-nowrap px-4 py-1" data-toggle="dropdown" href="#" role="button">一般 太郎
+        <div class="dropdown-toggle"></div>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a id="sign_out" rel="nofollow" data-method="delete" href="/users/sign_out"><span class="icon-logout"></span>Logout</a></li>
+        </ul>
+      </li>
+    </div>
+  </ul>
+</nav>
+<div class="container-fluid page">
+  <div class="d-flex"></div>
+  <div class="pickup-row display-lg hidden-sm">
+    <div class="d-flex flex-wrap justify-content-center w-100">
+      <div class="column">
+        <section class="pickup-card" id="card-about"><a href="#">
+          <div class="content shadow">
+            <div class="jc-name">
+              <h1>About Knonc</h1>
+            </div>
+            <div class="jc-desc">
+              <p>knoncは日本のがん症例の臨床情報とゲノム情報を統合したデータベースです。 情報源がプロジェクト毎にクリーニングされた高品質データであることより、臨床情報が正確・豊富であることが特徴です。</p>
+            </div>
+          </div>
+          </a>
+				</section>
+      </div>
+      <div class="column">
+        <section class="pickup-card" id="card-analyze"><a href="#">
+          <div class="content shadow">
+            <div class="jc-name">
+              <h1>Analyze</h1>
+            </div>
+            <div class="jc-desc">
+              <p>治療、予後情報などを含むことより、ゲノムデータと臨床データの両側面からの解析が可能になります。またクリニカルシーケンスにおけるExpert panelに向けて、特定の変異に対するガイドライン、本データベース／COSMICにおける頻度情報、薬剤情報、臨床試験情報を提供しています。</p>
+            </div>
+          </div>
+          </a>
+				</section>
+      </div>
+      <div class="column">
+        <section class="pickup-card" id="card-database"><a href="#">
+          <div class="content shadow">
+            <div class="jc-name">
+              <h1>Database</h1>
+            </div>
+            <div class="jc-desc">
+              <p>CDISC標準へ変換することにより複数の試験・プロジェクト由来のデータの統合が可能にしています。がん治療を目的とした日本国内の様々なグループによる臨床試験・プロジェクトよりデータを提供いただいています。</p>
+            </div>
+          </div>
+          </a>
+				</section>
+      </div>
+    </div>
+  </div>
+	<div class="pickup-row display-sm hidden-lg">
+		<div class="pickup-inner" id="pickup-about">
+			<div class="pickup-label toggle_btn_open"><span>About Knonc</span></div>
+			<div class="pickup-container">
+				<h1>About Knonc</h1>
+				<p>CDISC標準へ変換することにより複数の試験・プロジェクト由来のデータの統合が可能にしています。がん治療を目的とした日本国内の様々なグループによる臨床試験・プロジェクトよりデータを提供いただいています。</p>
+			</div>
+			<div class="toggle_btn_close hidden"></div>
+		</div>
+		<div class="pickup-inner" id="pickup-analyze">
+			<div class="pickup-label toggle_btn_open"><span>Analyze</span></div>
+			<div class="pickup-container">
+				<h1>Analyze</h1>
+				<p>治療、予後情報などを含むことより、ゲノムデータと臨床データの両側面からの解析が可能になります。またクリニカルシーケンスにおけるExpert panelに向けて、特定の変異に対するガイドライン、本データベース／COSMICにおける頻度情報、薬剤情報、臨床試験情報を提供しています。</p>
+			</div>
+			<div class="toggle_btn_close hidden"></div>
+		</div>
+		<div class="pickup-inner" id="pickup-database">
+			<div class="pickup-label toggle_btn_open"><span>Database</span></div>
+			<div class="pickup-container">
+				<h1>Database</h1>
+				<p>CDISC標準へ変換することにより複数の試験・プロジェクト由来のデータの統合が可能にしています。がん治療を目的とした日本国内の様々なグループによる臨床試験・プロジェクトよりデータを提供いただいています。</p>
+			</div>
+			<div class="toggle_btn_close hidden"></div>
+		</div>
+	</div>
+	
+  <div class="d-flex flex-wrap justify-content-center overview">
+    <div class="column display-sm hidden-lg">
+      <h1 class="mb-4 text-center">Summary</h1>
+      <div class="stat stat-left">
+        <ul>
+          <li id="studies"><img src="./packs/icon_studies.svg"><span class="name">Studies</span><span class="value">8</span></li>
+          <li id="cases"><img src="./packs/icon_cases.svg"><span class="name">Cases</span><span class="value">2666</span></li>
+        </ul>
+      </div>
+    </div>		
+    <div class="column">
+      <h1 class="mb-4 text-center">Diseases</h1>
+      <div id="disease-patients-svg">
+				<div>ここに円グラフが表示されます。</div>
+      </div>
+      <div id="disease-patients-tooltip">
+        <div class="tooltip" style="pointer-events: none; opacity: 0;"></div>
+      </div>
+    </div>
+    <div class="column">
+      <h1 class="mb-4 text-center">Summary</h1>
+      <div class="stat stat-left display-lg hidden-sm">
+        <ul>
+          <li id="studies"><img src="./packs/icon_studies.svg"><span class="name">Studies</span><span class="value">8</span></li>
+          <li id="cases"><img src="./packs/icon_cases.svg"><span class="name">Cases</span><span class="value">2666</span></li>
+        </ul>
+      </div>
+      <div class="stat stat-right">
+        <ul>
+          <li id="mutations"><img src="./packs/icon_mutations.svg"><span class="name">Mutations</span><span class="value">5317</span></li>
+          <li id="structural-variants"><img src="./packs/icon_structural-variants.svg"><span class="name">Structural Variants</span><span class="value">123</span></li>
+          <li id="copy-number-variants"><img src="./packs/icon_copy-number-variants.svg"><span class="name">Copy Number Variants</span><span class="value">1038</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="column">
+      <h1 class="mb-4 text-center">Genes</h1>
+      <div id="gene-mutations-svg">
+				<div>ここに棒グラフが表示されます</div>
+
+      </div>
+    </div>
+  </div>
+	
+  <div id="disease-patients-url" style="display:none">/api/overview/disease_patients</div>
+  <div id="gene-mutations-url" style="display:none">/api/overview/gene_mutations</div>
+  <script src="./packs/overview.js" defer="defer"></script>
+</div>
+<div id="footer">
+  <nav class="nav-footer display-lg hidden-sm">
+    <ul class="navbar-nav navbar-left">
+      <li><a href="/">Site Home</a></li>
+    </ul>
+  </nav>
+  <nav class="nav-footer display-sm hidden-lg">
+		<div id="footer-help">
+			<a class="help-link" href="https://docs.google.com/document/d/e/2PACX-1vQng94PRG8KpXBwC-OAyxea-Vsk3j-o7P3_1mbdCtWVW6sx93O7YDiQ3N5pGRVHL__hot7_TZrHFBsh/pub">Help</a>
+		</div>
+		<div id="footer-feedback">
+			<a class="feedback-link" data-toggle="modal" href="#feedback">Feedback</a>
+		</div>
+		<div id="btn-pagetop">
+			<a href="#page-top"></a>
+		</div>
+  </nav>
+  <div class="copyright">
+    <p>2019 © NHO Nagoya Medical Center -<span class="brand-prefix"> Kn</span><span class="brand-name">owledge base for</span><span class="brand-prefix"> onc</span><span class="brand-name">ology</span></p>
+  </div>
+</div>
+<div class="modal fade" id="feedback" role="dialog" tabindex="-1">
+  <div class="modal-dialog">
+    <form id="feedback-form" action="/feedbacks" accept-charset="UTF-8" method="post">
+      <input name="utf8" type="hidden" value="&#x2713;">
+      <input type="hidden" name="authenticity_token" value="CRuHH7Z2kTNU++TWTP4R2fpcdJ+4eQNmINkxgiM3b6OPIUNzsdaV1Zd8kD/+eArQrdUf/rDbgn0pfdDQ6l977A==">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Send Feedback</h5>
+        </div>
+        <div class="modal-body">
+          <div class="mb-2">
+            <label class="mr-2">
+              <input type="radio" value="suggestion" checked="checked" name="feedback[category]">
+              Suggestion</label>
+            <label>
+              <input type="radio" value="problem" name="feedback[category]">
+              Problem</label>
+          </div>
+          <textarea rows="10" class="w-100 resize-none" name="feedback[text]"></textarea>
+        </div>
+        <div class="modal-footer">
+          <button class="btn" data-dismiss="modal" type="button">Close</button>
+          <input type="submit" name="commit" value="Send" class="btn" data-disable-with="Send">
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<script src="https://www.promisejs.org/polyfills/promise-7.0.4.min.js" type="text/javascript"></script>
+<script crossorigin="anonymous" integrity="sha256-eOUokb/RjDw7kS+vDwbatNrLN8BIvvEhlLM5yogcDIo=" src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.4/fetch.min.js" type="text/javascript"></script>
+<script src="./packs/application.js" defer="defer"></script>
+<script src="./packs/mobile.js" defer="defer"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</body>
+</html>
